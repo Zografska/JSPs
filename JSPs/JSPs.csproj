@@ -168,6 +168,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BusesController.cs" />
+    <Compile Include="Controllers\BusLinesController.cs" />
+    <Compile Include="Controllers\BusStopsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -245,6 +248,21 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Buses\Create.cshtml" />
+    <Content Include="Views\Buses\Delete.cshtml" />
+    <Content Include="Views\Buses\Details.cshtml" />
+    <Content Include="Views\Buses\Edit.cshtml" />
+    <Content Include="Views\Buses\Index.cshtml" />
+    <Content Include="Views\BusLines\Create.cshtml" />
+    <Content Include="Views\BusLines\Delete.cshtml" />
+    <Content Include="Views\BusLines\Details.cshtml" />
+    <Content Include="Views\BusLines\Edit.cshtml" />
+    <Content Include="Views\BusLines\Index.cshtml" />
+    <Content Include="Views\BusStops\Create.cshtml" />
+    <Content Include="Views\BusStops\Delete.cshtml" />
+    <Content Include="Views\BusStops\Details.cshtml" />
+    <Content Include="Views\BusStops\Edit.cshtml" />
+    <Content Include="Views\BusStops\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

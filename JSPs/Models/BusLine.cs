@@ -9,6 +9,7 @@ namespace JSPs.Models
     {
         public List<BusStop> BusStops { get; set; }
         public int ID { get; set; }
+        //<ID na bus, kolku minuti mu treba da stigne do tamu since start date>
         public Dictionary<int, int> Map { get; set; }
 
         public BusLine()
