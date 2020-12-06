@@ -9,16 +9,18 @@ namespace JSPs.Models
     public class Ticket
     {
         public BusStop StartDestination { get; set; }
+        public Bus Bus { get; set; }
         public BusStop EndDestination { get; set; }
         [Key] 
         public int ID { get; set; }
         public Ticket() { }
 
-        public Ticket(int id, BusStop start, BusStop end)
+        public Ticket(int id, BusStop start, BusStop end, Bus bus)
         {
             ID = id;
             StartDestination = start;
             EndDestination = end;
+            Bus = bus;
         }
     }
 }

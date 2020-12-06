@@ -151,7 +151,7 @@ namespace JSPs.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, UserProfilePic = model.ProfilePicUrl };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -354,6 +354,7 @@ namespace JSPs.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
+            
             if (User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Index", "Manage");
