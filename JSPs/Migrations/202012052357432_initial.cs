@@ -1,4 +1,4 @@
-namespace JSPs.Migrations
+﻿namespace JSPs.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
