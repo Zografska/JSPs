@@ -46,7 +46,7 @@ namespace JSPs.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Capacity,StartTime")] Bus bus)
+        public ActionResult Create([Bind(Include = "ID,Capacity,BusLine,StartTime")] Bus bus)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace JSPs.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Capacity,StartTime")] Bus bus)
+        public ActionResult Edit([Bind(Include = "ID,Capacity,BusLine,StartTime")] Bus bus)
         {
             if (ModelState.IsValid)
             {

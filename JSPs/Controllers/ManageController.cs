@@ -15,6 +15,7 @@ namespace JSPs.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public ManageController()
         {
@@ -72,8 +73,13 @@ namespace JSPs.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
+
+            string imgUrl = db.Users.Find(userId).UserProfilePic;
+            ViewBag.imgUrl = imgUrl;
             return View(model);
         }
+
+        
 
         //
         // POST: /Manage/RemoveLogin

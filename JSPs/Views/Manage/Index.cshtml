@@ -9,12 +9,15 @@
 <div>
 
     <h2>Hello</h2>
-
+    @{
+        string url = ViewBag.imgUrl;
+        <img src=@url >
+    }
 
 
     <h6>Change your account settings</h6>
     <hr />
-    
+
     <dl class="dl-horizontal">
         <dt>Want to change your password?</dt>
         <dd>
@@ -29,6 +32,6 @@
             }
             ]
         </dd>
-       
+
     </dl>
 </div>

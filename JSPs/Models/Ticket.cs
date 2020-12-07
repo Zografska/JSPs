@@ -10,17 +10,19 @@ namespace JSPs.Models
     {
         public BusStop StartDestination { get; set; }
         public Bus Bus { get; set; }
+        public DateTime DateOfReservation { get; set; }
         public BusStop EndDestination { get; set; }
         [Key] 
         public int ID { get; set; }
         public Ticket() { }
 
-        public Ticket(int id, BusStop start, BusStop end, Bus bus)
+        public Ticket(int id, BusStop start, BusStop end, Bus bus, DateTime dateOfReservation)
         {
             ID = id;
             StartDestination = start;
             EndDestination = end;
             Bus = bus;
+            DateOfReservation = dateOfReservation;
         }
     }
 }

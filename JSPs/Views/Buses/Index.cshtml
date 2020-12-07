@@ -15,6 +15,9 @@
             @Html.DisplayNameFor(model => model.Capacity)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.BusLine)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.StartTime)
         </th>
         <th></th>
@@ -24,6 +27,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Capacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BusLine)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.StartTime)
