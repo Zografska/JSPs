@@ -173,6 +173,7 @@
     <Compile Include="Controllers\BusStopsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TicketsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,6 +200,14 @@
     <Compile Include="Migrations\202012071617040_ticketModified.cs" />
     <Compile Include="Migrations\202012071617040_ticketModified.designer.cs">
       <DependentUpon>202012071617040_ticketModified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012071854466_UserFullName.cs" />
+    <Compile Include="Migrations\202012071854466_UserFullName.designer.cs">
+      <DependentUpon>202012071854466_UserFullName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012072256481_BusNo.cs" />
+    <Compile Include="Migrations\202012072256481_BusNo.designer.cs">
+      <DependentUpon>202012072256481_BusNo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -278,6 +287,11 @@
     <Content Include="Views\BusStops\Details.cshtml" />
     <Content Include="Views\BusStops\Edit.cshtml" />
     <Content Include="Views\BusStops\Index.cshtml" />
+    <Content Include="Views\Tickets\Create.cshtml" />
+    <Content Include="Views\Tickets\Delete.cshtml" />
+    <Content Include="Views\Tickets\Details.cshtml" />
+    <Content Include="Views\Tickets\Edit.cshtml" />
+    <Content Include="Views\Tickets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,6 +327,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012071617040_ticketModified.resx">
       <DependentUpon>202012071617040_ticketModified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012071854466_UserFullName.resx">
+      <DependentUpon>202012071854466_UserFullName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012072256481_BusNo.resx">
+      <DependentUpon>202012072256481_BusNo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

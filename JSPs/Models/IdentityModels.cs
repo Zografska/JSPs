@@ -19,6 +19,7 @@ namespace JSPs.Models
             return userIdentity;
         }
         public List<Ticket> TicketList { get; set; }
+        public string FullName { get; set; }
         public string UserProfilePic { get; set; }
         public ApplicationUser()
         {

@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using JSPs.Models;
+using System.Collections.Generic;
 
 namespace JSPs.Controllers
 {
@@ -76,6 +77,10 @@ namespace JSPs.Controllers
 
             string imgUrl = db.Users.Find(userId).UserProfilePic;
             ViewBag.imgUrl = imgUrl;
+            string name = db.Users.Find(userId).FullName;
+            ViewBag.Name = name;
+            List<Ticket> tickets = db.Users.Find(userId).TicketList;
+            ViewBag.TicketList = tickets;
             return View(model);
         }
 

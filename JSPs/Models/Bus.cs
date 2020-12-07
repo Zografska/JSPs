@@ -10,6 +10,7 @@ namespace JSPs.Models
     {
         [Key]
         public int ID { get; set; }
+        public string BusNo { get; set; }
         public int Capacity { get; set; }
         public  string BusLine { get; set; }
         public List<BusStop> BusStops { get; set; }

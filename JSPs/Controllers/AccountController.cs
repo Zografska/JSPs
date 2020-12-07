@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -151,7 +153,7 @@ namespace JSPs.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, UserProfilePic = model.ProfilePicUrl };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, UserProfilePic = model.ProfilePicUrl, FullName = model.FullName };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

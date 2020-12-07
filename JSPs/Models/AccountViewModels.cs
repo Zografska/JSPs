@@ -76,6 +76,9 @@ namespace JSPs.Models
         public string Password { get; set; }
 
         public string ProfilePicUrl { get; set; }
+        public string FullName { get; set; }
+       
+        
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]

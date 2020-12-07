@@ -3,19 +3,46 @@
     ViewBag.Title = "Manage";
 }
 
-<h2>@ViewBag.Title.</h2>
+
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
 
-    <h2>Hello</h2>
+    <h3>Hello @ViewBag.Name</h3>
     @{
         string url = ViewBag.imgUrl;
-        <img src=@url >
+        <img src=@url width="200" >
     }
+<div class="panel panel-default">
+    <div class="panel-heading panel-info">Your Tickets</div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Bus No.</th>
+                    <th>StartDestination</th>
+                    <th>EndDestination</th>
+                    <th>Time</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                @foreach (var ticket in ViewBag.TicketList)
+                {
+                <tr>
+                    <td>@ticket.Bus.BusNo</td>
+                    <td>@ticket.StartDestination.Name</td>
+                    <td>@ticket.EndDestination.Name</td>
+                    <td>@ticket.DateOfReservation</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+   
 
 
-    <h6>Change your account settings</h6>
     <hr />
 
     <dl class="dl-horizontal">
