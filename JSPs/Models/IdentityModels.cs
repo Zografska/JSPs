@@ -28,7 +28,7 @@ namespace JSPs.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<BusLine> BusLines { get; set; }
+
         public DbSet<BusStop> BusStops { get; set; }
         public DbSet<Bus> Buses { get; set; }
         public DbSet<Ticket> Tickets { get; set; }

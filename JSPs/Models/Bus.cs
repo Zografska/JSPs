@@ -12,6 +12,8 @@ namespace JSPs.Models
         public int ID { get; set; }
         public int Capacity { get; set; }
         public List<BusStop> BusStops { get; set; }
+        //za kolku vrreme stiga do sledna postojka
+        public List<int> NextStop { get; set; }
         public DateTime StartTime { get; set; }
 
         public Bus()

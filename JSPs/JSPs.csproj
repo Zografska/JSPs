@@ -170,7 +170,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BusesController.cs" />
-    <Compile Include="Controllers\BusLinesController.cs" />
     <Compile Include="Controllers\BusStopsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -189,10 +188,13 @@
     <Compile Include="Migrations\202012060054579_NewUserProperties.designer.cs">
       <DependentUpon>202012060054579_NewUserProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012071530060_BusEdit.cs" />
+    <Compile Include="Migrations\202012071530060_BusEdit.designer.cs">
+      <DependentUpon>202012071530060_BusEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bus.cs" />
-    <Compile Include="Models\BusLine.cs" />
     <Compile Include="Models\BusStop.cs" />
     <Compile Include="Models\BusStopBuses.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -263,11 +265,6 @@
     <Content Include="Views\Buses\Details.cshtml" />
     <Content Include="Views\Buses\Edit.cshtml" />
     <Content Include="Views\Buses\Index.cshtml" />
-    <Content Include="Views\BusLines\Create.cshtml" />
-    <Content Include="Views\BusLines\Delete.cshtml" />
-    <Content Include="Views\BusLines\Details.cshtml" />
-    <Content Include="Views\BusLines\Edit.cshtml" />
-    <Content Include="Views\BusLines\Index.cshtml" />
     <Content Include="Views\BusStops\Create.cshtml" />
     <Content Include="Views\BusStops\Delete.cshtml" />
     <Content Include="Views\BusStops\Details.cshtml" />
@@ -299,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012060054579_NewUserProperties.resx">
       <DependentUpon>202012060054579_NewUserProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012071530060_BusEdit.resx">
+      <DependentUpon>202012071530060_BusEdit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
