@@ -20,6 +20,39 @@ namespace JSPs.Controllers
             return View(db.Buses.ToList());
         }
 
+        // GET: Buses/Route/5
+        public ActionResult Route(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            BusBusStops model = new BusBusStops();
+            model.Bus = db.Buses.Find(id);
+            model.BusId = model.Bus.ID;
+            model.BusStops = db.BusStops.ToList();
+
+
+            return View(model);
+        }
+
+        // POST: Buses/Route/5
+        [HttpPost]
+        public ActionResult Route([Bind(Include = "BusId,BusStopId,BusStops,Bus")] BusBusStops bus)
+        {
+            if (ModelState.IsValid)
+            {
+                //db.Entry(bus).State = EntityState.Modified;
+
+                db.Buses.FirstOrDefault(b => b.ID == bus.BusId).BusStops.Add(db.BusStops.FirstOrDefault(s => s.ID==bus.BusStopId));
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(bus);
+        }
+
+
+
         // GET: Buses/Details/5
         public ActionResult Details(int? id)
         {
