@@ -33,3 +33,4 @@ Raboti so preostanuvaat:
  - kaj listanjeto na liniite kreiran nov Action Link koj kje gi izlistuva site avtobusi i nivnite vreminja na trganje za taa linija
  - kreirano i view za pregled na site avtobusi SeeBuses, kreirano i kako kje izlistuva view-to i dodadeni se jQueryDataTables
  - da se smeni kaj bus klasata start time da ne bide DateTime tuku samo string koj kje se vnesuva vo odreden format (so validate). ?? Dali ova da e vaka?? zborime u pon
+ - kreirani DropDown listi pri kreiranje na tiket ama ne se zemaat posdattocite od baza poshto frla exception
