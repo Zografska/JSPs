@@ -43,7 +43,5 @@ namespace JSPs.Models
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<JSPs.Models.BusBusStops> BusBusStops { get; set; }
     }
 }

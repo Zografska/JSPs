@@ -8,7 +8,6 @@ namespace JSPs.Models
 {
     public class BusStopBuses
     {
-        //[Key]
         public int BusStopId { get; set; }
         public int BusId { get; set; }
         public BusStop BusStop { get; set; }
