@@ -8,8 +8,6 @@ namespace JSPs
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            
-
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -22,15 +20,11 @@ namespace JSPs
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/DataTables/dataTables.bootstrap.js",
-                      "~/Scripts/DataTables/jquery.dataTables.js"));
+                      "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css",
-                      "~/Content/DataTables/css/dataTables.bootstrap.css"));
+                      "~/Content/site.css"));
         }
     }
 }
-

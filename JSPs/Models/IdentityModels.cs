@@ -34,8 +34,6 @@ namespace JSPs.Models
         public DbSet<Bus> Buses { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
 
-        public DbSet<BusLine> BusLines { get; set; }
-
         public ApplicationDbContext() 
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -46,6 +44,6 @@ namespace JSPs.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<JSPs.Models.BusBusStops> BusBusStops { get; set; }
+        public System.Data.Entity.DbSet<JSPs.Models.BusBusStops> BusBusStops { get; set; }
     }
 }
