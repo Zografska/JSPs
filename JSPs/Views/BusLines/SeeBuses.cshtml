@@ -2,21 +2,27 @@
 
 @{
     ViewBag.Title = "SeeBuses";
+    string[] date = DateTime.Today.Date.ToString().Split(' ');
+    <h2>ПРЕГЛЕД НА АВТОБУСИ ЗА @date[0]</h2>
 }
-
-<h2>List of all busses</h2>
-
+<hr />
+<h5>Доколку сакате да резервирате билет за некој од останатите денови кликнете @Html.ActionLink("тука", "Create", "Tickets" )</h5>
+<hr />
 <table class="table" id="busList">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Capacity)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.BusLine)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                Initial capacity
+            </th>
+            <th>
+                Available seats
             </th>
             <th></th>
         </tr>
@@ -24,21 +30,55 @@
     </thead>
     <tbody>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Capacity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BusLine)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StartTime)
-                </td>
+        @{
+            int tmp = 0;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BusLine)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Capacity)
+                    </td>
+                    <td>
+                        @ViewBag.availableSeats[tmp]
+                    </td>
+                    @{
 
-            </tr>
+                        List<int> available = ViewBag.availableSeats;
+                        List<bool> dateOk = ViewBag.dateAvailable;
+                        int availableSeats = available[tmp];
+                        if (availableSeats > 0 && dateOk[tmp] == true)
+                        {
+                            <td>
+                                <input type="submit" value="Резервирај" onclick="location.href='@Url.Action("CreateDaily", "Tickets")'" class="btn btn-primary" />
+
+                            </td>
+
+                        }
+                        else if (dateOk[tmp] == false)
+                        {
+                            <td>
+                                <button type="submit" value="Резервирај" disabled="true" class="btn btn-primary">Резервирај</button>
+                            </td>
+                        }
+
+                    }
+                </tr>
+
+                tmp += 1;
+            }
         }
+
+
+
+
+
+
     </tbody>
 </table>
 @section Scripts{

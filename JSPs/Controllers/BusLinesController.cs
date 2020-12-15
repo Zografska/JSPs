@@ -118,11 +118,33 @@ namespace JSPs.Controllers
 
         public ActionResult SeeBuses(int id)
         {
-            //ovdeka sakam da mi vrati neshto u ovoj stil
             List<Bus> buses = db.Buses.ToList();
             string LineName = db.BusLines.Find(id).Name;
             IEnumerable toShow = buses.Where(bus => bus.BusLine == LineName);
-            //IEnumerable toShow = db.BusStops.Where(x => x.Buses.Any(y => y.ID == id)).ToList();
+
+            List<int> availableSeats = new List<int>();
+            List<bool> dateAvailable = new List<bool>();
+            foreach(Bus b in buses)
+            {
+                IEnumerable tickets = db.Tickets.Where(ticket => ticket.Bus.ID == b.ID && ticket.DateOfReservation == DateTime.Today);
+                int count = 0;
+                foreach (var x in tickets)
+                {
+                    count += 1;
+                }
+                availableSeats.Add(b.Capacity - count);
+
+                int hour = DateTime.Now.Hour;
+                bool check = false;
+                String startTime = b.StartTime;
+                if (hour < Int32.Parse(startTime.Substring(0,2)))
+                    check= true;
+                dateAvailable.Add(check);
+            }
+
+            ViewBag.availableSeats = availableSeats;
+            ViewBag.dateAvailable = dateAvailable;
+            
             return View(toShow);
         }
 

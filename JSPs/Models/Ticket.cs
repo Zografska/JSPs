@@ -8,12 +8,15 @@ namespace JSPs.Models
 {
     public class Ticket
     {
-        [Display(Name = "Start Destination")]
+        [Display(Name = "Почетна постојка")]
         public BusStop StartDestination { get; set; }
         public Bus Bus { get; set; }
+
+        [Display(Name ="Дата на резервација")]
+        [DataType(DataType.Date)]
         public DateTime DateOfReservation { get; set; }
 
-        [Display(Name = "End Destination")]
+        [Display(Name = "Крајна постојка")]
         public BusStop EndDestination { get; set; }
         [Key]
         public int ID { get; set; }

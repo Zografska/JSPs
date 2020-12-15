@@ -214,6 +214,14 @@
     <Compile Include="Migrations\202012150025424_addedBusLine.designer.cs">
       <DependentUpon>202012150025424_addedBusLine.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012152139250_TicketClassModified.cs" />
+    <Compile Include="Migrations\202012152139250_TicketClassModified.designer.cs">
+      <DependentUpon>202012152139250_TicketClassModified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012152142022_TicketClassBackToNormal.cs" />
+    <Compile Include="Migrations\202012152142022_TicketClassBackToNormal.designer.cs">
+      <DependentUpon>202012152142022_TicketClassBackToNormal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bus.cs" />
@@ -542,6 +550,7 @@
     <Content Include="Views\BusLines\Edit.cshtml" />
     <Content Include="Views\BusLines\Index.cshtml" />
     <Content Include="Views\BusLines\SeeBuses.cshtml" />
+    <Content Include="Views\Tickets\CreateDaily.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -586,6 +595,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012150025424_addedBusLine.resx">
       <DependentUpon>202012150025424_addedBusLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012152139250_TicketClassModified.resx">
+      <DependentUpon>202012152139250_TicketClassModified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012152142022_TicketClassBackToNormal.resx">
+      <DependentUpon>202012152142022_TicketClassBackToNormal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

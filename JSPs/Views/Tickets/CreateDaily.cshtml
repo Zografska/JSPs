@@ -1,10 +1,10 @@
 ﻿@model JSPs.Models.Ticket
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "CreateDily";
 }
 
-<h2>НОВ БИЛЕТ </h2>
+<h2>НОВ БИЛЕТ</h2>
 
 
 @using (Html.BeginForm())
@@ -17,30 +17,37 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DateOfReservation, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DateOfReservation, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DateOfReservation, "", new { @class = "text-danger" })
+                @{
+                    string[] date = DateTime.Today.Date.ToString().Split(' ');
+                    @date[0]
+                    //neshto ovakvo da se deshava
+                    //Model.DateOfReservation = DateTime.Today;
+                }
             </div>
         </div>
-        <div class="form-group">
-            @Html.Label("Линија", htmlAttributes: new { @class = "control-label col-md-2" })
-
-            <div class="col-md-10">
-                @Html.DropDownListFor(m => m.Bus.BusLine, new SelectList(ViewBag.busLineNames))
-            </div>
-
+        <div>
+            Линија:
         </div>
-
-
+        <div>
+            @{
+                // isto neshto u vakov stil ama ne znam kako da ja zememe linijata
+                // @Model.Bus.BusLine}
+            }
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.StartDestination, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(m => m.StartDestination, new SelectList(ViewBag.busStops))
+                <select>
+                    <option></option>
+                </select>
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.EndDestination, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(m => m.EndDestination, new SelectList(ViewBag.busStops))
+                <select>
+                    <option></option>
+                </select>
             </div>
         </div>
 
@@ -52,10 +59,3 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

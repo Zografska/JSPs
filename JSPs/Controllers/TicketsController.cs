@@ -38,10 +38,41 @@ namespace JSPs.Controllers
             return View(ticket);
         }
 
+        public ActionResult CreateDaily()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateDaily([Bind(Include = "ID,DateOfReservation")] Ticket ticket)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Tickets.Add(ticket);
+
+                var userId = User.Identity.GetUserId();
+                db.Users.Find(userId).TicketList.Add(ticket);
+
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+
+            return View(ticket);
+        }
         // GET: Tickets/Create
         public ActionResult Create()
         {
-            //ViewBag.BusStops = db.BusStops.ToList();
+            List<BusLine> busLines = db.BusLines.ToList();
+            List<String> busLineNames = new List<string>();
+            foreach(var b in busLines)
+            {
+                busLineNames.Add(b.Name);
+            }
+            ViewBag.busLineNames = busLineNames;
+            //ovde da se naprai za selektiraniot avtobus da se prikazhuvaat postojkite
+            ViewBag.busStops = db.BusStops.ToList();
             return View();
         }
 
