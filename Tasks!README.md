@@ -13,7 +13,7 @@ Raboti so preostanuvaat:
 
 
 [Priority: Normal]
-- Da ovozmozime prikazuvanje na cela lista avtobusi vo Details na BusStop, isto taka cela lista BusStops vo Details na avtobusi (formata e napravena ama ne gi vleche podatocite)
+- Da ovozmozime prikazuvanje na cela lista avtobusi vo Details na BusStop, isto taka cela lista BusStops vo Details na avtobusi
 - da se napravi logikata za tocno rezerviranje ticket
 - restrikcii koj mozhe shto da gleda (korisnikot da mozhe samo da lista i da rezervira tiketi a administratort da mozhe da dodava i da pravi edit)
 - administratorot da ima log od site tickets koi se napraveni
