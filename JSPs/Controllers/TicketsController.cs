@@ -41,7 +41,6 @@ namespace JSPs.Controllers
         // GET: Tickets/Create
         public ActionResult Create()
         {
-            //ViewBag.BusStops = db.BusStops.ToList();
             return View();
         }
 
@@ -63,9 +62,8 @@ namespace JSPs.Controllers
                 return RedirectToAction("Index");
 
             }
+            
 
-            
-            
             return View(ticket);
         }
 

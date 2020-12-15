@@ -8,12 +8,9 @@ namespace JSPs.Models
 {
     public class Ticket
     {
-        [Display(Name ="Start Destination")]
         public BusStop StartDestination { get; set; }
         public Bus Bus { get; set; }
         public DateTime DateOfReservation { get; set; }
-
-        [Display(Name = "End Destination")]
         public BusStop EndDestination { get; set; }
         [Key] 
         public int ID { get; set; }
