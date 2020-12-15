@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="container">
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h1>Welcome to JSPs</h1>
+        </div>
+        <div class="panel-body">
+            <p> Our <strong>main</strong> goal is to find a way to make travelling safe again.
+            By organizing our time and limiting seats we devized a system for <strong>safe</strong> traveling during the pandamic.
+            And Who knows? Maybe travel has changed forever...
+            </p>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>What are you wating for?</h2>
+            <p>
+                Join our JSPs comunnity! Nothing like smooth, and on-time tavel.
+            <p>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" }) today!</p> 
+            </p>
+
+        </div>
+        <div class="col-md-6">
+            <h2>Get informed</h2>
+            <p>Our day to day forever changed, but we will continue going. JSPs is here for you :)</p>
+            <p><a class="btn btn-info" href="https://who.int">Stay updated on the latest Covid19 news!</a></p>
+        </div>
+       
+    </div>
+
+
+
+</div>
