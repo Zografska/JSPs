@@ -19,9 +19,6 @@ Raboti so preostanuvaat:
 - administratorot da ima log od site tickets koi se napraveni
 - Da gi nashminkame stranite so Bootstrap
 - tamu kaj shto ima dodavanje na nov avtobus, nova linija... da se stavi [Required] (staveni se pri kreiranje na Bus)
-- SeeBuses da redirektira kon Index od BusesController i da se izlistuvaat samo dadenite avtobusi shto treba a ne da e posebno View
-- Celiot tab Buses da bide vidlv samo za administrator (za da mozhe da si gi pregleda site avtobusi da stavi nov da izbrishe...)
-
  
  
  [DONE]
