@@ -9,7 +9,6 @@ Raboti so preostanuvaat:
 - Pri create na ticket da se dodade mehanizam da postojka pocetna, krajna i avtobus, so dropdaun listi [zavrsheno do nekade]
 - Kaj izlistanite busStops da se dodade kopche rezerviraj Tiket shto kje ne prenasochi kon pop up (so partial view) kade shto pochetnata stanica kje bide selektiranata i kje mozhe so drop down lista da se izbere krajnata postojka za koja kreirame bilet. Otkako kje se izberat postojkite da se izlistaat site vtobusi koi pominuvaat niz tie dve postojki za korisnikot da mozhe da izbere. Otkako kje izbere dopolnitelno se izlistuvaat i vreminjata koga avtobusot pominuva od prvata postojka (kje gi izlista samo vreminjata kade shto ima prazno mesto vo avtobusot). Otkako se kje izbere da ima opcija reserve i cancel
 - Sreduvanje na delot User - Kadeso ke se dodade funkcionalnost dodavanje ticket na userot 
-- 
 
 
 [Priority: Normal]
@@ -19,11 +18,11 @@ Raboti so preostanuvaat:
 - administratorot da ima log od site tickets koi se napraveni
 - Da gi nashminkame stranite so Bootstrap
 - tamu kaj shto ima dodavanje na nov avtobus, nova linija... da se stavi [Required] (staveni se pri kreiranje na Bus)
-- SeeBuses da redirektira kon Index od BusesController i da se izlistuvaat samo dadenite avtobusi shto treba a ne da e posebno View
 - Celiot tab Buses da bide vidlv samo za administrator (za da mozhe da si gi pregleda site avtobusi da stavi nov da izbrishe...)
-- Vo Create view-to za tiketi da se napravat drop down listita za izbiranje na avtobus za linijata 
-- Vo Create view-to za tiketi da se napravat drop down listite da vlechat soodvetni podatoci 
+- Vo Create view-to za tiketi da se napravat drop down listita za izbiranje na avtobus za linijata [listi napraveni podatoci ne se zemaat]
+- Vo Create view-to za tiketi da se napravat drop down listite da vlechat soodvetni podatoci [listi napraveni podatoci ne se zemaat]
 - kaj izlistuvanjeto tiketi da se dodadat koloni kako na primer za koja linija koj avtobus i vo kolku saat trgal avtobusot
+- kaj dateTime pickerot za kreiranje nov bilet da se napravi da ne mozhe vo minatoto da se rezervira tiker
 
  
  
@@ -42,8 +41,4 @@ Raboti so preostanuvaat:
  - kreirani DropDown listi pri kreiranje na tiket 
  - kaj SeeBuses view-to dodadena kolona za maksimalen kapacitet na avtobusot i preostanati mesta, ako ima dovolno mesto i saatot e ok(primer ako avtobusot trga vo 12:00 ti mozesh samo pred 12 da rezerviras) se pojavuva kopche za rezervacija na bilet za toj den (te prenasochuva kon view CreateDaily)
  - kas SeeBuses plus nov ActionLink za kreiranje na bileti za drugi denovi, napravena e drop down lista za liniite 
-
- 
- 
- [DONE]
- - da se napravi ticket klasata 
+ - napraveno novo View koe kje se pokazhuva ako ima obid za kreiranje nov bilet a korisnikot ne e najaven (toa posle ima action link do log in stranata)
