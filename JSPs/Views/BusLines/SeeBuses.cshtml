@@ -6,7 +6,7 @@
     <h2>ПРЕГЛЕД НА АВТОБУСИ ЗА @date[0]</h2>
 }
 <hr />
-<h5>Доколку сакате да резервирате билет за некој од останатите денови кликнете @Html.ActionLink("тука", "Create", "Tickets" )</h5>
+<h5>Доколку сакате да резервирате билет за некој од останатите денови кликнете @Html.ActionLink("тука", "Create", "Tickets")</h5>
 <hr />
 <table class="table" id="busList">
     <thead>
@@ -54,13 +54,14 @@
                         int availableSeats = available[tmp];
                         if (availableSeats > 0 && dateOk[tmp] == true)
                         {
+                            List<JSPs.Models.Bus> buses= Model.ToList();
                             <td>
-                                <input type="submit" value="Резервирај" onclick="location.href='@Url.Action("CreateDaily", "Tickets")'" class="btn btn-primary" />
+                                <input type="submit" value="Резервирај" onclick="location.href='@Url.Action("CreateDaily", "Tickets", new { id = buses[tmp].ID})'" class="btn btn-primary" />
 
                             </td>
 
                         }
-                        else if (dateOk[tmp] == false)
+                        else if (dateOk[tmp] == false || availableSeats <= 0)
                         {
                             <td>
                                 <button type="submit" value="Резервирај" disabled="true" class="btn btn-primary">Резервирај</button>

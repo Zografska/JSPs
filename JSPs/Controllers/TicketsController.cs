@@ -38,8 +38,13 @@ namespace JSPs.Controllers
             return View(ticket);
         }
 
-        public ActionResult CreateDaily()
+        public ActionResult CreateDaily(int id)
         {
+            Bus b = db.Buses.Find(id);
+            ViewBag.bus = b;
+            // ova ne znam zashto ne raboti
+            IEnumerable<BusStop> stops = b.BusStops;
+            ViewBag.stops = stops.ToList();
             return View();
         }
 
@@ -52,8 +57,10 @@ namespace JSPs.Controllers
                 db.Tickets.Add(ticket);
 
                 var userId = User.Identity.GetUserId();
-                db.Users.Find(userId).TicketList.Add(ticket);
+                if (db.Users.Find(userId) == null)
+                    return View("notLogedIn");
 
+                db.Users.Find(userId).TicketList.Add(ticket);
                 db.SaveChanges();
                 return RedirectToAction("Index");
 
@@ -66,11 +73,13 @@ namespace JSPs.Controllers
         {
             List<BusLine> busLines = db.BusLines.ToList();
             List<String> busLineNames = new List<string>();
-            foreach(var b in busLines)
+            foreach (var b in busLines)
             {
                 busLineNames.Add(b.Name);
             }
             ViewBag.busLineNames = busLineNames;
+            //otkako kje se selektira linija treba avtobusite da gi izlista za denta
+            //otkako kje se selektira avtobus treba da se izlistaat postojkite
             //ovde da se naprai za selektiraniot avtobus da se prikazhuvaat postojkite
             ViewBag.busStops = db.BusStops.ToList();
             return View();
@@ -94,7 +103,7 @@ namespace JSPs.Controllers
                 return RedirectToAction("Index");
 
             }
-            
+
 
             return View(ticket);
         }

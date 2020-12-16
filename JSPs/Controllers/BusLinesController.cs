@@ -124,7 +124,7 @@ namespace JSPs.Controllers
 
             List<int> availableSeats = new List<int>();
             List<bool> dateAvailable = new List<bool>();
-            foreach(Bus b in buses)
+            foreach(Bus b in toShow)
             {
                 IEnumerable tickets = db.Tickets.Where(ticket => ticket.Bus.ID == b.ID && ticket.DateOfReservation == DateTime.Today);
                 int count = 0;

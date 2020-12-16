@@ -551,6 +551,7 @@
     <Content Include="Views\BusLines\Index.cshtml" />
     <Content Include="Views\BusLines\SeeBuses.cshtml" />
     <Content Include="Views\Tickets\CreateDaily.cshtml" />
+    <Content Include="Views\Tickets\notLogedIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

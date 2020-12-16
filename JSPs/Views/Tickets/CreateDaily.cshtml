@@ -17,37 +17,28 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DateOfReservation, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @{
-                    string[] date = DateTime.Today.Date.ToString().Split(' ');
-                    @date[0]
-                    //neshto ovakvo da se deshava
-                    //Model.DateOfReservation = DateTime.Today;
-                }
+                @Html.Label(@DateTime.Today.ToString().Split(' ')[0])
+                @Model.DateOfReservation=@DateTime.Today;
             </div>
         </div>
-        <div>
-            Линија:
-        </div>
-        <div>
-            @{
-                // isto neshto u vakov stil ama ne znam kako da ja zememe linijata
-                // @Model.Bus.BusLine}
-            }
+        <div class="form-group">
+            @Html.Label("Линија", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{ string busLine = ViewBag.Bus.BusLine;}
+                @Html.Label(busLine)
+            </div>
+
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.StartDestination, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select>
-                    <option></option>
-                </select>
+                @Html.DropDownListFor(model => model.StartDestination, new SelectList(ViewBag.stops))
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.EndDestination, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select>
-                    <option></option>
-                </select>
+                @Html.DropDownListFor(model => model.EndDestination, new SelectList(ViewBag.stops))
             </div>
         </div>
 
