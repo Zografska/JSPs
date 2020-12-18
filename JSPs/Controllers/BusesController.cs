@@ -60,6 +60,9 @@ namespace JSPs.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Bus bus = db.Buses.Find(id);
+           
+            List < BusStop > busStops = db.BusStops.Where(x => x.Buses.Any(y => y.ID == id)).ToList();
+            bus.BusStops = busStops;
             if (bus == null)
             {
                 return HttpNotFound();

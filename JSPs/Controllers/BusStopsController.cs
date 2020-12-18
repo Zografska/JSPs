@@ -33,7 +33,10 @@ namespace JSPs.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
             BusStop busStop = db.BusStops.Find(id);
+            busStop.Buses = db.Buses.Where(x => x.BusStops.Any(y => y.ID == id)).ToList();
+                //Stops.Where(x => x.Buses.Any(y => y.ID == id)).ToList();
             if (busStop == null)
             {
                 return HttpNotFound();

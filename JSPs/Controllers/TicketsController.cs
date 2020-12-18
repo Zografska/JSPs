@@ -31,6 +31,7 @@ namespace JSPs.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Ticket ticket = db.Tickets.Find(id);
+           // ticket.EndDestination = db.BusStops.Where(x => x.Buses.Any(y => y.ID == id)).ToList()[0];
             if (ticket == null)
             {
                 return HttpNotFound();
@@ -71,18 +72,17 @@ namespace JSPs.Controllers
         // GET: Tickets/Create
         public ActionResult Create()
         {
-            List<BusLine> busLines = db.BusLines.ToList();
-            List<String> busLineNames = new List<string>();
-            foreach (var b in busLines)
-            {
-                busLineNames.Add(b.Name);
-            }
-            ViewBag.busLineNames = busLineNames;
+            List<Bus> buses = db.Buses.ToList();
+          
             //otkako kje se selektira linija treba avtobusite da gi izlista za denta
             //otkako kje se selektira avtobus treba da se izlistaat postojkite
             //ovde da se naprai za selektiraniot avtobus da se prikazhuvaat postojkite
-            ViewBag.busStops = db.BusStops.ToList();
-            return View();
+            List<BusStop> busStops = db.BusStops.ToList();
+            CreateTicketModel model = new CreateTicketModel();
+            model.Buses = buses;
+            model.StartBusStops = busStops;
+            model.EndBusStops = busStops;
+            return View("CreateTicket",model);
         }
 
         // POST: Tickets/Create
@@ -90,14 +90,20 @@ namespace JSPs.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,DateOfReservation")] Ticket ticket)
+        public ActionResult Create([Bind(Include = "Date,BusId,StartBusStopId,EndBusStopId")] CreateTicketModel model)
         {
+            Ticket ticket = new Ticket();
+            ticket.Bus = db.Buses.Find(model.BusId);
+            ticket.StartDestination = db.BusStops.Find(model.StartBusStopId);
+            ticket.EndDestination = db.BusStops.Find(model.EndBusStopId);
+            ticket.DateOfReservation = model.Date;
+
             if (ModelState.IsValid)
             {
                 db.Tickets.Add(ticket);
 
-                var userId = User.Identity.GetUserId();
-                db.Users.Find(userId).TicketList.Add(ticket);
+               // var userId = User.Identity.GetUserId();
+               // db.Users.Find(userId).TicketList.Add(ticket);
 
                 db.SaveChanges();
                 return RedirectToAction("Index");
