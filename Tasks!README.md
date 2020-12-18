@@ -4,9 +4,10 @@ Ke napisham nekolku rabotki so treba nekoj od nas da gi sredi :0
 Dosega, kreeirani se osnovnite CRUD operacii, za site modeli potrebni za applikacijata e kreiran kontroler
 
 Raboti so preostanuvaat:
-[Priority: High]
-- Pri create na bus stop da se dodade mehanizam da dodavanje poveke avtobusi koiso se vekje vo databazata (Odi vo busStops, probaj da kreirash postojka, i sporedi so podatoci vo model da vidis za sho zboram :)) [UOPCSHTE NE MOZHAM DA GI IZLISTAM SITE BUS STOPS POSHTO FRLA EXCEPTION za izlistuvanjeto zoshto ne znam]
-- Pri create na ticket da se dodade mehanizam da postojka pocetna, krajna i avtobus, so dropdaun listi [zavrsheno do nekade]
+**##[Priority: High]
+
+-Details na ticket da gi prikaze krajnata destinacija i pocetnata **Kako da se zemat od databaza podatocite?
+
 - Kaj izlistanite busStops da se dodade kopche rezerviraj Tiket shto kje ne prenasochi kon pop up (so partial view) kade shto pochetnata stanica kje bide selektiranata i kje mozhe so drop down lista da se izbere krajnata postojka za koja kreirame bilet. Otkako kje se izberat postojkite da se izlistaat site vtobusi koi pominuvaat niz tie dve postojki za korisnikot da mozhe da izbere. Otkako kje izbere dopolnitelno se izlistuvaat i vreminjata koga avtobusot pominuva od prvata postojka (kje gi izlista samo vreminjata kade shto ima prazno mesto vo avtobusot). Otkako se kje izbere da ima opcija reserve i cancel
 - Sreduvanje na delot User - Kadeso ke se dodade funkcionalnost dodavanje ticket na userot 
 
@@ -22,7 +23,8 @@ Raboti so preostanuvaat:
 - Vo Create view-to za tiketi da se napravat drop down listita za izbiranje na avtobus za linijata [listi napraveni podatoci ne se zemaat]
 - Vo Create view-to za tiketi da se napravat drop down listite da vlechat soodvetni podatoci [listi napraveni podatoci ne se zemaat]
 - kaj izlistuvanjeto tiketi da se dodadat koloni kako na primer za koja linija koj avtobus i vo kolku saat trgal avtobusot
-- kaj dateTime pickerot za kreiranje nov bilet da se napravi da ne mozhe vo minatoto da se rezervira tiker
+- kaj dateTime pickerot za kreiranje nov bilet da se napravi da ne mozhe vo minatoto da se rezervira tiket- odnosno da se dodade kalendar kako datepicker od koj moze da se odbere datum i vreme
+
 
  
  
@@ -42,3 +44,6 @@ Raboti so preostanuvaat:
  - kaj SeeBuses view-to dodadena kolona za maksimalen kapacitet na avtobusot i preostanati mesta, ako ima dovolno mesto i saatot e ok(primer ako avtobusot trga vo 12:00 ti mozesh samo pred 12 da rezerviras) se pojavuva kopche za rezervacija na bilet za toj den (te prenasochuva kon view CreateDaily)
  - kas SeeBuses plus nov ActionLink za kreiranje na bileti za drugi denovi, napravena e drop down lista za liniite 
  - napraveno novo View koe kje se pokazhuva ako ima obid za kreiranje nov bilet a korisnikot ne e najaven (toa posle ima action link do log in stranata)
+ - Pri create na ticket da se dodade mehanizam da postojka pocetna, krajna i avtobus, so dropdaun listi [Dodaden CreateTicketModel]
+ - Ne znam zoso vo Bus Controller vo Details akcijata koa ke probam da pristapam do busStops atributot na Bus dobivam prazna lista, iako vo BusStopBus tabelata se pokazuvaat BusStopsot povrzani so toj bus. Istoto vazi i izlistuvanje na Buses vo BusStop details :)
+- Pri create na bus stop da se dodade mehanizam da dodavanje poveke avtobusi koiso se vekje vo databazata (Odi vo busStops, probaj da kreirash postojka, i sporedi so podatoci vo model da vidis za sho zboram :))  --Reseno preku route funkcijata vo busses controler
