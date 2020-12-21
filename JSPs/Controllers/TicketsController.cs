@@ -31,7 +31,13 @@ namespace JSPs.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Ticket ticket = db.Tickets.Find(id);
-           // ticket.EndDestination = db.BusStops.Where(x => x.Buses.Any(y => y.ID == id)).ToList()[0];
+
+            //Bus bus = db.Buses.Find(ticket.Bus.ID);
+            
+            //List<BusStop> busStops = db.BusStops.Where(x => x.Buses.Any(y => y.ID == ticket.Bus.ID)).ToList();
+            //ViewBag.Test = busStops.Find(b => b.ID == ticket.StartDestination.ID);
+
+            // ticket.EndDestination = db.BusStops.Where(x => x.Buses.Any(y => y.ID == id)).ToList()[0];
             if (ticket == null)
             {
                 return HttpNotFound();
@@ -59,7 +65,7 @@ namespace JSPs.Controllers
 
                 var userId = User.Identity.GetUserId();
                 if (db.Users.Find(userId) == null)
-                    return View("notLogedIn");
+                    return View("notLoggedIn");
 
                 db.Users.Find(userId).TicketList.Add(ticket);
                 db.SaveChanges();

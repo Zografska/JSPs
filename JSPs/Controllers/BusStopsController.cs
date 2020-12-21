@@ -21,9 +21,17 @@ namespace JSPs.Controllers
         }
 
         // GET: Modal
+        public ActionResult PickEndDestination(int? id)
+        {
+            ViewBag.zdrJana = db.BusStops.Find(id).Name;
+            return PartialView(db.BusStops.ToList());
+        }
+
+        // POST: BusStops/PickEndDestination/5
+        [HttpPost]
         public ActionResult PickEndDestination()
         {
-            return PartialView();
+            return View();
         }
 
         // GET: BusStops/Details/5

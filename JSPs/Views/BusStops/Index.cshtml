@@ -32,8 +32,8 @@
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                 </td>
                 <td>
-                    <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#chooseEnd"
-                            data-url="@Url.Action("PickEndDestination")">Button</button>
+                    <button type="button" data_id="@item.ID" class="btn-block">Резервирај тикет</button>
+                    <div class="modal fade" id="mModal_@item.ID" data-url="@Url.Action("PickEndDestination", "BusStops", new { id = item.ID })"></div>
                 </td>
             </tr>
         }
@@ -45,6 +45,18 @@
     <script>
         $(document).ready(function () {
             $("#stopsTable").DataTable();
-        })
+
+            $(".btn-block").click(function () {
+                //var proba = "\"#mModal_" + $(this).attr("data_id") + "\"";
+                //console.log(proba);
+                var url = $("#mModal_" + $(this).attr("data_id")).data("url");
+                console.log(url);
+                $.get(url, function (data) {
+                    $("#mModal_1").html(data);
+                    $("#mModal_1").modal("show");
+                });
+            });
+
+        });
     </script>
 }
