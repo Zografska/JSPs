@@ -20,7 +20,16 @@ namespace JSPs.Controllers
         // GET: Tickets
         public ActionResult Index()
         {
-            return View(db.Tickets.ToList());
+            List<Ticket> tickets = new List<Ticket>();
+            tickets = db.Tickets.ToList();
+            //Sprecuvame lazy loading
+            foreach (Ticket ticket in tickets)
+            {
+                ticket.Bus = db.Buses.Where(x => x.ID == ticket.ChosenBusId).ToList()[0];
+                ticket.EndDestination = (BusStop)db.BusStops.Where(x => x.ID == ticket.EndId).ToList()[0];
+                ticket.StartDestination = (BusStop)db.BusStops.Where(x => x.ID == ticket.StartId).ToList()[0];
+            }
+            return View(tickets);
         }
 
         // GET: Tickets/Details/5

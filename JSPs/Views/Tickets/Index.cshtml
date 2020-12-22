@@ -15,6 +15,16 @@
             <th>
                 @Html.DisplayNameFor(model => model.DateOfReservation)
             </th>
+            <th>
+                @Html.Label("Број на автобус")
+            </th>
+            <th>
+                @Html.Label("Почетна постојка")
+            </th>
+            <th>
+                @Html.Label("Крајна постојка")
+            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -22,14 +32,24 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateOfReservation)
-                </td>
-                <td>
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfReservation)
+            </td>
+            <td>
+                @Html.ActionLink(item.Bus.BusNo, "Index", "Buses")
+            </td>
+            <td>
+                @Html.ActionLink(item.StartDestination.Name, "Index", "BusStops")
+            </td>
+            <td>
+                @Html.ActionLink(item.EndDestination.Name, "Index", "BusStops")
+            </td>
+
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
         }
     </tbody>
 
