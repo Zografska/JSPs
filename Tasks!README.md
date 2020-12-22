@@ -1,33 +1,31 @@
 # JSPs
 Dobrodojdovte vo svetot na taskovite :)
-Ke napisham nekolku rabotki so treba nekoj od nas da gi sredi :0
-Dosega, kreeirani se osnovnite CRUD operacii, za site modeli potrebni za applikacijata e kreiran kontroler
+Nabrzo ovoj svet ke zgasne :0 
+Pri kraj mislam deka sme decki. I'm proud of us :*
 
 Raboti so preostanuvaat:
 **##[Priority: High]
-
--Details na ticket da gi prikaze krajnata destinacija i pocetnata **Kako da se zemat od databaza podatocite?
-
+**- da se napravi logikata za tocno rezerviranje ticket
 - Kaj izlistanite busStops da se dodade kopche rezerviraj Tiket shto kje ne prenasochi kon pop up (so partial view) kade shto pochetnata stanica kje bide selektiranata i kje mozhe so drop down lista da se izbere krajnata postojka za koja kreirame bilet. Otkako kje se izberat postojkite da se izlistaat site vtobusi koi pominuvaat niz tie dve postojki za korisnikot da mozhe da izbere. Otkako kje izbere dopolnitelno se izlistuvaat i vreminjata koga avtobusot pominuva od prvata postojka (kje gi izlista samo vreminjata kade shto ima prazno mesto vo avtobusot). Otkako se kje izbere da ima opcija reserve i cancel
-- Sreduvanje na delot User - Kadeso ke se dodade funkcionalnost dodavanje ticket na userot 
-
-
-[Priority: Normal]
-- Da ovozmozime prikazuvanje na cela lista avtobusi vo Details na BusStop, isto taka cela lista BusStops vo Details na avtobusi (formata e napravena ama ne gi vleche podatocite)
-- da se napravi logikata za tocno rezerviranje ticket
-- restrikcii koj mozhe shto da gleda (korisnikot da mozhe samo da lista i da rezervira tiketi a administratort da mozhe da dodava i da pravi edit)
-- administratorot da ima log od site tickets koi se napraveni
-- Da gi nashminkame stranite so Bootstrap
-- tamu kaj shto ima dodavanje na nov avtobus, nova linija... da se stavi [Required] (staveni se pri kreiranje na Bus)
-- Celiot tab Buses da bide vidlv samo za administrator (za da mozhe da si gi pregleda site avtobusi da stavi nov da izbrishe...)
-- Vo Create view-to za tiketi da se napravat drop down listita za izbiranje na avtobus za linijata [listi napraveni podatoci ne se zemaat]
-- Vo Create view-to za tiketi da se napravat drop down listite da vlechat soodvetni podatoci [listi napraveni podatoci ne se zemaat]
-- kaj izlistuvanjeto tiketi da se dodadat koloni kako na primer za koja linija koj avtobus i vo kolku saat trgal avtobusot
+**- kaj izlistuvanjeto tiketi da se dodadat koloni kako na primer za koja linija koj avtobus i vo kolku saat trgal avtobusot
 - kaj dateTime pickerot za kreiranje nov bilet da se napravi da ne mozhe vo minatoto da se rezervira tiket- odnosno da se dodade kalendar kako datepicker od koj moze da se odbere datum i vreme
 
 
- 
- 
+-Zogra: Vo index Tickets dodadov action linkovi za da nosat kon Details soodvetniot avtobus, postojka - no ne raboti. Ne ja izbira tocnata pateka? ne znam zoso. Kodot so go imav ex. @Html.ActionLink(ticket.Bus.BusNo, "Details", "Buses", new {id = ticket.Bus.ID}),,, Error: Bad request - me prenasocuvase na pateka na tickets kontrolerot....
+
+
+
+[Priority: Normal]
+- tamu kaj shto ima dodavanje na nov avtobus, nova linija... da se stavi [Required] (staveni se pri kreiranje na Bus)
+
+
+[Kraj]
+- administratorot da ima log od site tickets koi se napraveni -Already done- toa ni e tickets index - samo da ja postavime taa strana samo toj da ja gleda
+- Celiot tab Buses da bide vidlv samo za administrator (za da mozhe da si gi pregleda site avtobusi da stavi nov da izbrishe...)
+- restrikcii koj mozhe shto da gleda (korisnikot da mozhe samo da lista i da rezervira tiketi a administratort da mozhe da dodava i da pravi edit)
+- Da gi nashminkame stranite so Bootstrap, tema
+
+
  [DONE]
  - da se napravi ticket klasata 
  - dodaden tiket kontroler
@@ -47,3 +45,8 @@ Raboti so preostanuvaat:
  - Pri create na ticket da se dodade mehanizam da postojka pocetna, krajna i avtobus, so dropdaun listi [Dodaden CreateTicketModel]
  - Ne znam zoso vo Bus Controller vo Details akcijata koa ke probam da pristapam do busStops atributot na Bus dobivam prazna lista, iako vo BusStopBus tabelata se pokazuvaat BusStopsot povrzani so toj bus. Istoto vazi i izlistuvanje na Buses vo BusStop details :)
 - Pri create na bus stop da se dodade mehanizam da dodavanje poveke avtobusi koiso se vekje vo databazata (Odi vo busStops, probaj da kreirash postojka, i sporedi so podatoci vo model da vidis za sho zboram :))  --Reseno preku route funkcijata vo busses controler
+-Details na ticket da gi prikaze krajnata destinacija i pocetnata 
+- Sreduvanje na delot User - Kadeso ke se dodade funkcionalnost dodavanje ticket na userot 
+- Da ovozmozime prikazuvanje na cela lista avtobusi vo Details na BusStop, isto taka cela lista BusStops vo Details na avtobusi (formata e napravena ama ne gi vleche podatocite)
+- Vo Create view-to za tiketi da se napravat drop down listita za izbiranje na avtobus za linijata [listi napraveni podatoci ne se zemaat]
+- Vo Create view-to za tiketi da se napravat drop down listite da vlechat soodvetni podatoci [listi napraveni podatoci ne se zemaat]
