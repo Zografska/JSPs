@@ -12,6 +12,7 @@ namespace JSPs.Models
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
+        public List<Ticket> tickets { get; set; }
     }
 
     public class ManageLoginsViewModel

@@ -27,7 +27,7 @@
                 
             </thead>
             <tbody>
-                @foreach (var ticket in ViewBag.TicketList)
+                @foreach (var ticket in Model.tickets)
                 {
                 <tr>
                     <td>@ticket.Bus.BusNo</td>

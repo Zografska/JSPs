@@ -100,16 +100,20 @@ namespace JSPs.Controllers
         {
             Ticket ticket = new Ticket();
             ticket.Bus = db.Buses.Find(model.BusId);
+            ticket.ChosenBusId = model.BusId;
             ticket.StartDestination = db.BusStops.Find(model.StartBusStopId);
+            ticket.StartId = model.StartBusStopId;
             ticket.EndDestination = db.BusStops.Find(model.EndBusStopId);
+            ticket.EndId = model.EndBusStopId;
             ticket.DateOfReservation = model.Date;
-
+            var userId = User.Identity.GetUserId();
+            var user = db.Users.Find(userId);
+            ticket.User = user;
             if (ModelState.IsValid)
             {
+               
                 db.Tickets.Add(ticket);
-
-               // var userId = User.Identity.GetUserId();
-               // db.Users.Find(userId).TicketList.Add(ticket);
+                user.TicketList.Add(ticket);
 
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -74,13 +74,22 @@ namespace JSPs.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
-
+            // Prakjame info za stranata za user
+            // na IndexModelot dodadena e lista bileti
             string imgUrl = db.Users.Find(userId).UserProfilePic;
             ViewBag.imgUrl = imgUrl;
             string name = db.Users.Find(userId).FullName;
             ViewBag.Name = name;
-            List<Ticket> tickets = db.Users.Find(userId).TicketList;
-            ViewBag.TicketList = tickets;
+            var id = User.Identity.GetUserId();
+            List<Ticket> tickets = db.Tickets.Where(x => x.User.Id==id).ToList();
+           
+            foreach (Ticket ticket in tickets) {
+                ticket.Bus = db.Buses.Where(x => x.ID == ticket.ChosenBusId).ToList()[0];
+                ticket.EndDestination = (BusStop)db.BusStops.Where(x => x.ID == ticket.EndId).ToList()[0];
+                ticket.StartDestination = (BusStop)db.BusStops.Where(x => x.ID == ticket.StartId).ToList()[0];
+            }
+            // busStop.Buses = db.Buses.Where(x => x.BusStops.Any(y => y.ID == id)).ToList();
+            model.tickets = tickets;
             return View(model);
         }
 
