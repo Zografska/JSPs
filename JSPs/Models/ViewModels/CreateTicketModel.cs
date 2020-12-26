@@ -15,6 +15,7 @@ namespace JSPs.Models
         public List<Bus> Buses { get; set; }
         public List<BusStop> StartBusStops { get; set; }
         public List<BusStop> EndBusStops { get; set; }
+        public DateTime DateOfReservation { get; set; }
         public CreateTicketModel() {
             Buses = new List<Bus>();
             StartBusStops = new List<BusStop>();

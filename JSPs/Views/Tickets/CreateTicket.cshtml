@@ -25,7 +25,7 @@
             @Html.Label("Линија", htmlAttributes: new { @class = "control-label col-md-2" })
 
             <div class="col-md-10">
-                @Html.DropDownListFor(m => m.BusId, new SelectList(Model.Buses, "ID","BusNo"))
+                @Html.DropDownListFor(m => m.BusId, new SelectList(Model.Buses, "ID","BusNo", "StartTime"))
             </div>
 
         </div>

@@ -1,4 +1,4 @@
-﻿@model JSPs.Models.Ticket
+﻿@model JSPs.Models.CreateTicketModel
 
 @{
     ViewBag.Title = "CreateDily";
@@ -18,30 +18,30 @@
             @Html.LabelFor(model => model.DateOfReservation, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.Label(@DateTime.Today.ToString().Split(' ')[0])
-                @Model.DateOfReservation=@DateTime.Today;
+
             </div>
         </div>
         <div class="form-group">
             @Html.Label("Линија", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @{ string busLine = ViewBag.Bus.BusLine;}
+                @{ string busLine = ViewBag.busLine;}
                 @Html.Label(busLine)
             </div>
 
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.StartDestination, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Почетна постојка", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.StartDestination, new SelectList(ViewBag.stops))
+                @Html.DropDownListFor(model => model.StartBusStopId, new SelectList(Model.StartBusStops,"ID","Name"))
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.EndDestination, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Крајна постојка", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.EndDestination, new SelectList(ViewBag.stops))
+                @Html.DropDownListFor(model => model.EndBusStopId, new SelectList(Model.EndBusStops, "ID", "Name"))
             </div>
         </div>
-
+        @Html.HiddenFor(model => model.BusId)
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />

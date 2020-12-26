@@ -37,7 +37,7 @@
                 @Html.DisplayFor(modelItem => item.DateOfReservation)
             </td>
             <td>
-                @Html.ActionLink(item.Bus.BusNo, "Index", "Buses")
+                <a href='@Url.Action("Details", "Buses", new { id = item.Bus.ID})'>@item.Bus.BusNo</a>
             </td>
             <td>
                 @Html.ActionLink(item.StartDestination.Name, "Index", "BusStops")

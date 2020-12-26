@@ -57,29 +57,39 @@ namespace JSPs.Controllers
         public ActionResult CreateDaily(int id)
         {
             Bus b = db.Buses.Find(id);
-            ViewBag.bus = b;
-            // ova ne znam zashto ne raboti
-            IEnumerable<BusStop> stops = b.BusStops;
-            ViewBag.stops = stops.ToList();
-            return View();
+            ViewBag.busLine = b.BusLine;
+
+            CreateTicketModel model = new CreateTicketModel();
+            List<BusStop> busStops = db.BusStops.ToList();
+            
+            model.BusId = id;
+            model.StartBusStops = busStops;
+            model.EndBusStops = busStops;
+            return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateDaily([Bind(Include = "ID,DateOfReservation")] Ticket ticket)
+        public ActionResult CreateDaily([Bind(Include = "Date,BusId,StartBusStopId,EndBusStopId")] CreateTicketModel model)
         {
+
+            Ticket ticket = new Ticket();
+            ticket.Bus = db.Buses.Find(model.BusId);
+            ticket.ChosenBusId = model.BusId;
+            ticket.StartDestination = db.BusStops.Find(model.StartBusStopId);
+            ticket.StartId = model.StartBusStopId;
+            ticket.EndDestination = db.BusStops.Find(model.EndBusStopId);
+            ticket.EndId = model.EndBusStopId;
+            ticket.DateOfReservation = DateTime.Today;
+            var userId = User.Identity.GetUserId();
+            var user = db.Users.Find(userId);
             if (ModelState.IsValid)
             {
                 db.Tickets.Add(ticket);
+                user.TicketList.Add(ticket);
 
-                var userId = User.Identity.GetUserId();
-                if (db.Users.Find(userId) == null)
-                    return View("notLoggedIn");
-
-                db.Users.Find(userId).TicketList.Add(ticket);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-
             }
 
             return View(ticket);
