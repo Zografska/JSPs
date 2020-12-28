@@ -2,21 +2,19 @@
 Dobrodojdovte vo svetot na taskovite :)
 Nabrzo ovoj svet ke zgasne :0 
 Pri kraj mislam deka sme decki. I'm proud of us :*
+Ne misli pri kraj sme :)
 
 Raboti so preostanuvaat:
 **##[Priority: High]
 **- da se napravi logikata za tocno rezerviranje ticket
-- Kaj izlistanite busStops da se dodade kopche rezerviraj Tiket shto kje ne prenasochi kon pop up (so partial view) kade shto pochetnata stanica kje bide selektiranata i kje mozhe so drop down lista da se izbere krajnata postojka za koja kreirame bilet. Otkako kje se izberat postojkite da se izlistaat site vtobusi koi pominuvaat niz tie dve postojki za korisnikot da mozhe da izbere. Otkako kje izbere dopolnitelno se izlistuvaat i vreminjata koga avtobusot pominuva od prvata postojka (kje gi izlista samo vreminjata kade shto ima prazno mesto vo avtobusot). Otkako se kje izbere da ima opcija reserve i cancel
-**- kaj izlistuvanjeto tiketi da se dodadat koloni kako na primer za koja linija koj avtobus i vo kolku saat trgal avtobusot
-- kaj dateTime pickerot za kreiranje nov bilet da se napravi da ne mozhe vo minatoto da se rezervira tiket- odnosno da se dodade kalendar kako datepicker od koj moze da se odbere datum i vreme
+- JANA: kaj dateTime pickerot za kreiranje nov bilet da se napravi da ne mozhe vo minatoto da se rezervira tiket- odnosno da se dodade kalendar kako datepicker od koj moze da se odbere datum i vreme
 
-
--Zogra: Vo index Tickets dodadov action linkovi za da nosat kon Details soodvetniot avtobus, postojka - no ne raboti. Ne ja izbira tocnata pateka? ne znam zoso. Kodot so go imav ex. @Html.ActionLink(ticket.Bus.BusNo, "Details", "Buses", new {id = ticket.Bus.ID}),,, Error: Bad request - me prenasocuvase na pateka na tickets kontrolerot....
 
 
 
 [Priority: Normal]
 - tamu kaj shto ima dodavanje na nov avtobus, nova linija... da se stavi [Required] (staveni se pri kreiranje na Bus)
+- JANA: Kaj rezervacija na tiket kade shto se odbiraat linii da se napravi vo drop down listata da pishuva imeNaLinija + vreme na trganje na avtobusot
 
 
 [Kraj]
@@ -50,3 +48,6 @@ Raboti so preostanuvaat:
 - Da ovozmozime prikazuvanje na cela lista avtobusi vo Details na BusStop, isto taka cela lista BusStops vo Details na avtobusi (formata e napravena ama ne gi vleche podatocite)
 - Vo Create view-to za tiketi da se napravat drop down listita za izbiranje na avtobus za linijata [listi napraveni podatoci ne se zemaat]
 - Vo Create view-to za tiketi da se napravat drop down listite da vlechat soodvetni podatoci [listi napraveni podatoci ne se zemaat]
+-Zogra: Vo index Tickets dodadov action linkovi za da nosat kon Details soodvetniot avtobus, postojka - no ne raboti. Ne ja izbira tocnata pateka? ne znam zoso. Kodot so go imav ex. @Html.ActionLink(ticket.Bus.BusNo, "Details", "Buses", new {id = ticket.Bus.ID}),,, Error: Bad request - me prenasocuvase na pateka na tickets kontrolerot....
+- Kaj izlistanite busStops da se dodade kopche rezerviraj Tiket shto kje ne prenasochi kon create ticket
+- kaj izlistuvanjeto tiketi da se dodadat koloni kako na primer za koja linija koj avtobus i vo kolku saat trgal avtobusot
