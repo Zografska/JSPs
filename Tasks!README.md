@@ -5,9 +5,9 @@ Pri kraj mislam deka sme decki. I'm proud of us :*
 Ne misli pri kraj sme :)
 
 Raboti so preostanuvaat:
-**##[Priority: High]
-**- da se napravi logikata za tocno rezerviranje ticket
-**- JANA: Ushte eden datepicker za vreme?? 
+#[Priority: High]
+- da se napravi logikata za tocno rezerviranje ticket
+- JANA: Ushte eden datepicker za vreme?? 
 
 
 [Priority: Normal]
