@@ -210,6 +210,10 @@
     <Compile Include="Migrations\202012072256481_BusNo.designer.cs">
       <DependentUpon>202012072256481_BusNo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012121730546_addedBusBusStops.cs" />
+    <Compile Include="Migrations\202012121730546_addedBusBusStops.Designer.cs">
+      <DependentUpon>202012121730546_addedBusBusStops.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202012150025424_addedBusLine.cs" />
     <Compile Include="Migrations\202012150025424_addedBusLine.designer.cs">
       <DependentUpon>202012150025424_addedBusLine.cs</DependentUpon>
@@ -222,13 +226,9 @@
     <Compile Include="Migrations\202012152142022_TicketClassBackToNormal.designer.cs">
       <DependentUpon>202012152142022_TicketClassBackToNormal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202012221922575_ticket-fix.cs" />
-    <Compile Include="Migrations\202012221922575_ticket-fix.designer.cs">
-      <DependentUpon>202012221922575_ticket-fix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012221938235_ticket-fix-fix.cs" />
-    <Compile Include="Migrations\202012221938235_ticket-fix-fix.designer.cs">
-      <DependentUpon>202012221938235_ticket-fix-fix.cs</DependentUpon>
+    <Compile Include="Migrations\202101032259459_janaPulls.cs" />
+    <Compile Include="Migrations\202101032259459_janaPulls.designer.cs">
+      <DependentUpon>202101032259459_janaPulls.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ViewModels\AccountViewModels.cs" />
@@ -605,6 +605,9 @@
     <EmbeddedResource Include="Migrations\202012072256481_BusNo.resx">
       <DependentUpon>202012072256481_BusNo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012121730546_addedBusBusStops.resx">
+      <DependentUpon>202012121730546_addedBusBusStops.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012150025424_addedBusLine.resx">
       <DependentUpon>202012150025424_addedBusLine.cs</DependentUpon>
     </EmbeddedResource>
@@ -614,11 +617,8 @@
     <EmbeddedResource Include="Migrations\202012152142022_TicketClassBackToNormal.resx">
       <DependentUpon>202012152142022_TicketClassBackToNormal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012221922575_ticket-fix.resx">
-      <DependentUpon>202012221922575_ticket-fix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012221938235_ticket-fix-fix.resx">
-      <DependentUpon>202012221938235_ticket-fix-fix.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101032259459_janaPulls.resx">
+      <DependentUpon>202101032259459_janaPulls.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,13 +7,13 @@ namespace JSPs.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class ticketfixfix : IMigrationMetadata
+    public sealed partial class janaPulls : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ticketfixfix));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(janaPulls));
         
         string IMigrationMetadata.Id
         {
-            get { return "202012221938235_ticket-fix-fix"; }
+            get { return "202101032259459_janaPulls"; }
         }
         
         string IMigrationMetadata.Source
