@@ -7,9 +7,7 @@ Ne misli pri kraj sme :)
 Raboti so preostanuvaat:
 **##[Priority: High]
 **- da se napravi logikata za tocno rezerviranje ticket
-- JANA: kaj dateTime pickerot za kreiranje nov bilet da se napravi da ne mozhe vo minatoto da se rezervira tiket- odnosno da se dodade kalendar kako datepicker od koj moze da se odbere datum i vreme
-
-
+**- JANA: Ushte eden datepicker za vreme?? 
 
 
 [Priority: Normal]
@@ -51,3 +49,4 @@ Raboti so preostanuvaat:
 -Zogra: Vo index Tickets dodadov action linkovi za da nosat kon Details soodvetniot avtobus, postojka - no ne raboti. Ne ja izbira tocnata pateka? ne znam zoso. Kodot so go imav ex. @Html.ActionLink(ticket.Bus.BusNo, "Details", "Buses", new {id = ticket.Bus.ID}),,, Error: Bad request - me prenasocuvase na pateka na tickets kontrolerot....
 - Kaj izlistanite busStops da se dodade kopche rezerviraj Tiket shto kje ne prenasochi kon create ticket
 - kaj izlistuvanjeto tiketi da se dodadat koloni kako na primer za koja linija koj avtobus i vo kolku saat trgal avtobusot
+- kaj dateTime pickerot za kreiranje nov bilet da se napravi da ne mozhe vo minatoto da se rezervira tiket- odnosno da se dodade kalendar kako datepicker od koj moze da se odbere datum
