@@ -8,6 +8,7 @@ Raboti so preostanuvaat:
 #[Priority: High]
 - da se napravi logikata za tocno rezerviranje ticket
 - Kaj rezervacija na tiket kade shto se odbiraat linii da se napravi vo drop down listata da pishuva imeNaLinija + vreme na trganje na avtobusot
+- Otkako kje se izbere linija i vreme na trganje da se odberat pochetna i krajna postojka (kaj CreateTicket)
 
 
 [Priority: Normal]
