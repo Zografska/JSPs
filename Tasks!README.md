@@ -7,12 +7,11 @@ Ne misli pri kraj sme :)
 Raboti so preostanuvaat:
 #[Priority: High]
 - da se napravi logikata za tocno rezerviranje ticket
-- JANA: Ushte eden datepicker za vreme?? 
+- Kaj rezervacija na tiket kade shto se odbiraat linii da se napravi vo drop down listata da pishuva imeNaLinija + vreme na trganje na avtobusot
 
 
 [Priority: Normal]
 - tamu kaj shto ima dodavanje na nov avtobus, nova linija... da se stavi [Required] (staveni se pri kreiranje na Bus)
-- JANA: Kaj rezervacija na tiket kade shto se odbiraat linii da se napravi vo drop down listata da pishuva imeNaLinija + vreme na trganje na avtobusot
 
 
 [Kraj]
