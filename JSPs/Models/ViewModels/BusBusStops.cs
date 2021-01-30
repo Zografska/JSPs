@@ -9,6 +9,8 @@ namespace JSPs.Models
     {
         public int BusStopId { get; set; }
         public int BusId { get; set; }
+        public int Capacity { get; set; }
+   
         public Bus Bus { get; set; }
         public List<BusStop> BusStops { get; set; }
         public BusBusStops()

@@ -4,11 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-    <h2>ПРЕГЛЕД НА ПОСТОЈКИ</h2>
+<h2>ПРЕГЛЕД НА ПОСТОЈКИ</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@Html.ActionLink("Create New", "Create")
+
 <table class="table" id="stopsTable">
     <thead>
         <tr>
@@ -16,7 +15,7 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th></th>
-   
+
         </tr>
     </thead>
     <tbody>
@@ -31,7 +30,7 @@
                     @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                 </td>
-             
+
             </tr>
         }
     </tbody>

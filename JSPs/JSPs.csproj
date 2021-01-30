@@ -237,6 +237,7 @@
     <Compile Include="Models\ViewModels\BusBusStops.cs" />
     <Compile Include="Models\BusLine.cs" />
     <Compile Include="Models\BusStop.cs" />
+    <Compile Include="Models\ViewModels\BusLineBusModel.cs" />
     <Compile Include="Models\ViewModels\BusStopBuses.cs" />
     <Compile Include="Models\ViewModels\CreateTicketModel.cs" />
     <Compile Include="Models\ViewModels\IdentityModels.cs" />
