@@ -34,10 +34,10 @@
         {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.DateOfReservation)
+                @Html.DisplayTextFor(modelItem => item.DateOfReservation)
             </td>
             <td>
-                <a href='@Url.Action("Details", "Buses", new { id = item.Bus.ID})'>@item.Bus.BusNo</a>
+                <a href='@Url.Action("Details", "Buses", new { id = item.Bus.ID})'>@item.Bus.BusLine</a>
             </td>
             <td>
                 @Html.ActionLink(item.StartDestination.Name, "Index", "BusStops")
