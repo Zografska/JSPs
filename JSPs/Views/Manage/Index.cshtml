@@ -30,10 +30,10 @@
                 @foreach (var ticket in Model.tickets)
                 {
                 <tr>
-                    <td>@ticket.Bus.BusNo</td>
+                    <td>@ticket.Bus.BusLine</td>
                     <td>@ticket.StartDestination.Name</td>
                     <td>@ticket.EndDestination.Name</td>
-                    <td>@ticket.DateOfReservation</td>
+                    <td>@ticket.DateOfReservation.ToShortDateString()</td>
                 </tr>
                 }
             </tbody>
