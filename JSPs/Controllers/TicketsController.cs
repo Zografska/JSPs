@@ -139,8 +139,7 @@ namespace JSPs.Controllers
 
             }
 
-
-            return View(ticket);
+            return View("CreateTicket", ticket);
         }
 
         // GET: Tickets/Edit/5

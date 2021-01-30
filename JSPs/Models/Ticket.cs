@@ -16,6 +16,7 @@ namespace JSPs.Models
         public Bus Bus { get; set; }
 
         [Display(Name ="Дата на резервација")]
+        [DisplayFormat(DataFormatString = "dd//mm//yy")]
         [DataType(DataType.Date)]
         public DateTime DateOfReservation { get; set; }
 

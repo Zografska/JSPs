@@ -8,7 +8,7 @@ namespace JSPs.Models
 {
     public class BusStop
     {
-        [Display(Name ="Линија")]
+        [Display(Name ="Постојка")]
         public string Name { get; set; }
         [Key]
         public int ID { get; set; }

@@ -23,6 +23,9 @@ namespace JSPs.Models
         public List<BusStop> StartBusStops { get; set; }
         public List<BusStop> EndBusStops { get; set; }
         public DateTime DateOfReservation { get; set; }
+
+        [Display(Name = "Изберете линија")]
+        public BusLineStartTime BusLineStartTime { get; set; }
         public CreateTicketModel() {
             Buses = new List<Bus>();
             StartBusStops = new List<BusStop>();
