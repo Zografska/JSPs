@@ -1,27 +1,23 @@
 # JSPs
 Dobrodojdovte vo svetot na taskovite :)
-Nabrzo ovoj svet ke zgasne :0 
-Pri kraj mislam deka sme decki. I'm proud of us :*
-Ne misli pri kraj sme :)
+Ke napisham nekolku rabotki so treba nekoj od nas da gi sredi :0
+Dosega, kreeirani se osnovnite CRUD operacii, za site modeli potrebni za applikacijata e kreiran kontroler
 
 Raboti so preostanuvaat:
-#[Priority: High]
-- da se napravi logikata za tocno rezerviranje ticket
-- Kaj rezervacija na tiket kade shto se odbiraat linii da se napravi vo drop down listata da pishuva imeNaLinija + vreme na trganje na avtobusot
-- Otkako kje se izbere linija i vreme na trganje da se odberat pochetna i krajna postojka (kaj CreateTicket)
-
+[Priority: High]
+- On Select javaScript function za da se izlistuvaat vreminjata za avtobusot i negovite postojki[Jana]
+- Vo details za BusStop ne se izlistuvaat avtobusite na postojkata [Zogra+Ognen]
 
 [Priority: Normal]
-- tamu kaj shto ima dodavanje na nov avtobus, nova linija... da se stavi [Required] (staveni se pri kreiranje na Bus)
+- Broj na avtobus i data na rezervacija vo Index na TicketsController [Zogra+Ognen to su srca dva]
+- Kaj user da ne vika Hloo janaser... hello Jana (firstname) [Zogra+Ognen]
+- avtorizacija (administratorot da ima log od site tickets koi se napraveni, restrikcii koj mozhe shto da gleda (korisnikot da mozhe samo da lista i da rezervira tiketi a administratort da mozhe da dodava i da pravi edit))
 
-
-[Kraj]
-- administratorot da ima log od site tickets koi se napraveni -Already done- toa ni e tickets index - samo da ja postavime taa strana samo toj da ja gleda
-- Celiot tab Buses da bide vidlv samo za administrator (za da mozhe da si gi pregleda site avtobusi da stavi nov da izbrishe...)
-- restrikcii koj mozhe shto da gleda (korisnikot da mozhe samo da lista i da rezervira tiketi a administratort da mozhe da dodava i da pravi edit)
-- Da gi nashminkame stranite so Bootstrap, tema
-
-
+[Posledno na kraj]
+- kaj izlistuvanje na tickets za korisnikiot time 12:00 Am da se trgne [Ognen]
+- Da ne stoi Index ko naslov [Jana]
+- Da gi nashminkame stranite so Bootstrap [Jana+Zogra ako ima vreme na kraj]
+ 
  [DONE]
  - da se napravi ticket klasata 
  - dodaden tiket kontroler
