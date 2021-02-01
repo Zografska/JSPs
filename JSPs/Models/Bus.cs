@@ -21,8 +21,11 @@ namespace JSPs.Models
         public List<BusStop> BusStops { get; set; }
         //za kolku vrreme stiga do sledna postojka
         public List<int> NextStop { get; set; }
+
         [Required]
         [Display(Name ="Hour")]
+        [DisplayFormat(DataFormatString = "HH:mm")]
+        [DataType(DataType.Time)]
         public DateTime StartTime { get; set; }
 
         public Bus()
