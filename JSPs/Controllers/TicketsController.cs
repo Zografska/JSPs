@@ -199,6 +199,11 @@ namespace JSPs.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult FilterBusses(int busLine)
+        {
+            return ();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

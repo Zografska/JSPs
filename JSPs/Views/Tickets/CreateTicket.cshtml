@@ -28,6 +28,14 @@
                 @Html.DropDownListFor(m => m.BusId, new SelectList(Model.Buses, "ID", "BusLine", new { @id = "chosenBus" }))
             </div>
 
+            @Ajax.BeginForm("FilterBusses", "Ticket", new AjaxOptions
+       {
+           HttpMethod = "POST",
+           UpdateTargetId = "time"
+
+
+       })
+
         </div>
 
         <div class="form-group">
@@ -70,6 +78,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#Date").datepicker({
@@ -80,25 +89,7 @@
         });
     </script>
     <script>
-        //on select na linija da se izlistaat nejzinite vreminja i postojki
-        var element = document.getElementById("chosenBus");
-        element.onselectionchange(function f() {
-            console.log('New selection made');
-            var selection = element.getSelection();
-            var timeFilter = document.getElementById("time").children;
-            var StartDestFilter = document.getElementById("startDest");
-            var EndDestFilter = document.getElementById("startDest");
 
-            //za vremeto
-
-            var validTimes = timeFilter.options.namedItem(selection);
-
-            for (var i = 0; i < timeFilter.length; i++) {
-                if (timeFilter[i].id != parseInt(selection))
-                    document.getElementById("time").removeChild(timeFilter[i]);
-            }
-        }
-                );
     </script>
 }
 
