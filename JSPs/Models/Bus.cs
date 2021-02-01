@@ -24,7 +24,7 @@ namespace JSPs.Models
 
         [Required]
         [Display(Name ="Hour")]
-        [DisplayFormat(DataFormatString = "HH:mm")]
+        [DisplayFormat(DataFormatString = "0:HH\\:mm")]
         [DataType(DataType.Time)]
         public DateTime StartTime { get; set; }
 
@@ -33,12 +33,11 @@ namespace JSPs.Models
             BusStops = new List<BusStop>();
         }
 
-        public Bus(int id, int capacity, List<BusStop> busStops, DateTime startTime)
+        public Bus(int id, int capacity, List<BusStop> busStops)
         {
             ID = id;
             Capacity = capacity;
             BusStops = busStops;
-            StartTime = startTime;
         }
 
 

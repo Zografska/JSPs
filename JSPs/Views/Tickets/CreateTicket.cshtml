@@ -31,10 +31,10 @@
         </div>
 
         <div class="form-group">
-            @Html.Label("Време", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Време на поаѓање", htmlAttributes: new { @class = "control-label col-md-2" })
 
             <div class="col-md-10">
-                @Html.DropDownListFor(m => m.BusId, new SelectList(Model.Buses, "ID", "StartTime", new { @id = "time" }))
+                @Html.DropDownListFor(m => m.BusId, new SelectList(Model.Buses, "ID", "StartTime.Hour", new { @id = "time" }))
             </div>
 
         </div>
