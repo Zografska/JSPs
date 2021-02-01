@@ -1,44 +1,38 @@
 ﻿@model JSPs.Models.CreateTicketModel
 @{
-    ViewBag.Title = "CreateTicket";
+    ViewBag.Title = "CreateTicket2";
 }
-
 
 <h2>НОВ БИЛЕТ </h2>
 
-
-@using (Html.BeginForm())
+@using (Html.BeginForm("Confirm", "Tickets", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", @id = "Date", @Value = "-Oдбери дата-" } })
-                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                @{
+                    string dateToShow = Model.Date.ToString().Substring(0,9);
+
+                    @Html.Label(dateToShow, new { htmlAttributes = new { @class = "form-control" } })
+                }
             </div>
         </div>
         <div class="form-group">
-            @Html.Label("Автобус", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Линија", htmlAttributes: new { @class = "control-label col-md-2" })
 
             <div class="col-md-10">
-                @Html.DropDownListFor(m => m.BusId, new SelectList(Model.Buses, "ID", "BusLine", new { @id = "chosenBus" }))
+                @Html.Label(Model.LineName, new { htmlAttributes = new { @class = "form-control" } })
             </div>
-
-            @Ajax.BeginForm("FilterBusses", "Ticket", new AjaxOptions
-       {
-           HttpMethod = "POST",
-           UpdateTargetId = "time"
-
-
-       })
-
         </div>
 
         <div class="form-group">
+
             @Html.Label("Време на поаѓање", htmlAttributes: new { @class = "control-label col-md-2" })
 
             <div class="col-md-10">
@@ -46,7 +40,6 @@
             </div>
 
         </div>
-
 
         <div class="form-group">
             @Html.Label("Почетна Постојка", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -63,33 +56,15 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Следно" class="btn btn-primary" />
             </div>
         </div>
     </div>
+
+
+
 }
 
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#Date").datepicker({
-                dateFormat: "mm/dd/yy",
-                minDate: -0,
-                maxDate: "+1M +0D"
-            });
-        });
-    </script>
-    <script>
-
-    </script>
-}
-

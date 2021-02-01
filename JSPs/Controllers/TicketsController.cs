@@ -97,17 +97,14 @@ namespace JSPs.Controllers
         // GET: Tickets/Create
         public ActionResult Create()
         {
-            List<Bus> buses = db.Buses.ToList();
-          
-            //otkako kje se selektira linija treba avtobusite da gi izlista za denta
-            //otkako kje se selektira avtobus treba da se izlistaat postojkite
-            //ovde da se naprai za selektiraniot avtobus da se prikazhuvaat postojkite
+            List<BusLine> busLines = db.BusLines.ToList();
             List<BusStop> busStops = db.BusStops.ToList();
             CreateTicketModel model = new CreateTicketModel();
-            model.Buses = buses;
+
+            model.BusLines = busLines;
             model.StartBusStops = busStops;
             model.EndBusStops = busStops;
-            return View("CreateTicket",model);
+            return View("CreateTicket1",model);
         }
 
         // POST: Tickets/Create
@@ -115,31 +112,31 @@ namespace JSPs.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Date,BusId,StartBusStopId,EndBusStopId")] CreateTicketModel model)
+        public ActionResult Create([Bind(Include = "Date,BusLineId")] CreateTicketModel model)
         {
-            Ticket ticket = new Ticket();
-            ticket.Bus = db.Buses.Find(model.BusId);
-            ticket.ChosenBusId = model.BusId;
-            ticket.StartDestination = db.BusStops.Find(model.StartBusStopId);
-            ticket.StartId = model.StartBusStopId;
-            ticket.EndDestination = db.BusStops.Find(model.EndBusStopId);
-            ticket.EndId = model.EndBusStopId;
-            ticket.DateOfReservation = model.Date;
-            var userId = User.Identity.GetUserId();
-            var user = db.Users.Find(userId);
-            ticket.User = user;
-            if (ModelState.IsValid)
+            CreateTicketModel m= new CreateTicketModel();
+
+            m.BusLineId = model.BusLineId;
+            m.LineName = db.BusLines.Find(m.BusLineId).Name;
+            m.Date = model.Date;
+
+            List<Bus> allBuses = db.Buses.ToList();
+            List<int> ints = new List<int>();
+            
+
+            foreach (Bus b in allBuses)
             {
-               
-                db.Tickets.Add(ticket);
-                user.TicketList.Add(ticket);
-
-                db.SaveChanges();
-                return RedirectToAction("Index");
-
+                if (b.BusLine.Equals(m.LineName))
+                {
+                    m.Buses.Add(b);
+                    ints.Add(b.ID);
+                }
             }
 
-            return View("CreateTicket", ticket);
+            List<BusStop> busStops = db.BusStops.Where(x => x.Buses.Any(r => ints.Contains(r.ID))).ToList();
+            m.EndBusStops = busStops;
+            m.StartBusStops = busStops;
+            return View("CreateTicket2", m);
         }
 
         // GET: Tickets/Edit/5
@@ -199,9 +196,34 @@ namespace JSPs.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult FilterBusses(int busLine)
+        public ActionResult Confirm()
         {
-            return ();
+            //Zogra
+            //Ova ti e kodot za kreiranje na tiket !!! SHTO PRETHODNO BESHE VO CREATE
+            //Ticket ticket = new Ticket();
+            //ticket.Bus = db.Buses.Find(model.BusId);
+            //ticket.ChosenBusId = model.BusId;
+            //ticket.StartDestination = db.BusStops.Find(model.StartBusStopId);
+            //ticket.StartId = model.StartBusStopId;
+            //ticket.EndDestination = db.BusStops.Find(model.EndBusStopId);
+            //ticket.EndId = model.EndBusStopId;
+            //ticket.DateOfReservation = model.Date;
+            //var userId = User.Identity.GetUserId();
+            //var user = db.Users.Find(userId);
+            //ticket.User = user;
+            //if (ModelState.IsValid)
+            //{
+
+            //   db.Tickets.Add(ticket);
+            //    user.TicketList.Add(ticket);
+
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+
+            //}
+
+
+            return View();
         }
 
         protected override void Dispose(bool disposing)

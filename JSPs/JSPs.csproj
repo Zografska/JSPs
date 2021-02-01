@@ -571,10 +571,12 @@
     <Content Include="Views\BusLines\Index.cshtml" />
     <Content Include="Views\BusLines\SeeBuses.cshtml" />
     <Content Include="Views\Tickets\notLogedIn.cshtml" />
-    <Content Include="Views\Tickets\CreateTicket.cshtml" />
+    <Content Include="Views\Tickets\CreateTicket1.cshtml" />
     <Content Include="Views\BusStops\PickEndDestination.cshtml" />
     <Content Include="Views\Tickets\CreateDaily.cshtml" />
     <Content Include="Tasks!README.md" />
+    <Content Include="Views\Tickets\CreateTicket2.cshtml" />
+    <Content Include="Views\Tickets\Confirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
