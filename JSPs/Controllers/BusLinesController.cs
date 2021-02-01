@@ -136,8 +136,8 @@ namespace JSPs.Controllers
 
                 int hour = DateTime.Now.Hour;
                 bool check = false;
-                String startTime = b.StartTime;
-                if (hour < Int32.Parse(startTime.Substring(0,2)))
+                DateTime startTime = b.StartTime;
+                if (hour < startTime.Hour)
                     check= true;
                 dateAvailable.Add(check);
             }

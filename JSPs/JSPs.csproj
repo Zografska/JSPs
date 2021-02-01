@@ -230,6 +230,14 @@
     <Compile Include="Migrations\202101032259459_janaPulls.designer.cs">
       <DependentUpon>202101032259459_janaPulls.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101312327302_changedBusClass.cs" />
+    <Compile Include="Migrations\202101312327302_changedBusClass.designer.cs">
+      <DependentUpon>202101312327302_changedBusClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101312346437_idontknow.cs" />
+    <Compile Include="Migrations\202101312346437_idontknow.designer.cs">
+      <DependentUpon>202101312346437_idontknow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BusLineStartTime.cs" />
     <Compile Include="Models\ViewModels\AccountViewModels.cs" />
@@ -564,6 +572,7 @@
     <Content Include="Views\Tickets\CreateTicket.cshtml" />
     <Content Include="Views\BusStops\PickEndDestination.cshtml" />
     <Content Include="Views\Tickets\CreateDaily.cshtml" />
+    <Content Include="Tasks!README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -620,6 +629,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101032259459_janaPulls.resx">
       <DependentUpon>202101032259459_janaPulls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101312327302_changedBusClass.resx">
+      <DependentUpon>202101312327302_changedBusClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101312346437_idontknow.resx">
+      <DependentUpon>202101312346437_idontknow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

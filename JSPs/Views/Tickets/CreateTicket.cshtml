@@ -11,54 +11,54 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", @id = "Date", @Value = "-Oдбери дата-" } })
-            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", @id = "Date", @Value = "-Oдбери дата-" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.Label("Автобус", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group">
+            @Html.Label("Автобус", htmlAttributes: new { @class = "control-label col-md-2" })
 
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => m.BusId, new SelectList(Model.Buses, "ID", "BusLine"))
-        </div>
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.BusId, new SelectList(Model.Buses, "ID", "BusLine", new { @id = "chosenBus" }))
+            </div>
 
-    </div>
-
-    <div class="form-group">
-        @Html.Label("Време", htmlAttributes: new { @class = "control-label col-md-2" })
-
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => m.BusId, new SelectList(Model.Buses, "ID", "StartTime"))
         </div>
 
-    </div>
+        <div class="form-group">
+            @Html.Label("Време", htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.BusId, new SelectList(Model.Buses, "ID", "StartTime", new { @id = "time" }))
+            </div>
+
+        </div>
 
 
-    <div class="form-group">
-        @Html.Label("Почетна Постојка", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => m.StartBusStopId, new SelectList(Model.StartBusStops, "ID", "Name"))
+        <div class="form-group">
+            @Html.Label("Почетна Постојка", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.StartBusStopId, new SelectList(Model.StartBusStops, "ID", "Name", new { @id = "startDest" }))
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.Label("Крајна Постојка", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => m.EndBusStopId, new SelectList(Model.EndBusStops, "ID", "Name"))
+        <div class="form-group">
+            @Html.Label("Крајна Постојка", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.EndBusStopId, new SelectList(Model.EndBusStops, "ID", "Name", new { @id = "endDest" }))
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
         </div>
     </div>
-</div>
 }
 
 <div>
@@ -80,7 +80,25 @@
         });
     </script>
     <script>
-        //on select na linija da se izlistaat nejzinite vreminja i postojki 
+        //on select na linija da se izlistaat nejzinite vreminja i postojki
+        var element = document.getElementById("chosenBus");
+        element.onselectionchange(function f() {
+            console.log('New selection made');
+            var selection = element.getSelection();
+            var timeFilter = document.getElementById("time").children;
+            var StartDestFilter = document.getElementById("startDest");
+            var EndDestFilter = document.getElementById("startDest");
+
+            //za vremeto
+
+            var validTimes = timeFilter.options.namedItem(selection);
+
+            for (var i = 0; i < timeFilter.length; i++) {
+                if (timeFilter[i].id != parseInt(selection))
+                    document.getElementById("time").removeChild(timeFilter[i]);
+            }
+        }
+                );
     </script>
 }
 

@@ -12,22 +12,25 @@ namespace JSPs.Models
         public int ID { get; set; }
         public string BusNo { get; set; }
         [Required]
+        [Range(0, 50, ErrorMessage = "Автобусите со кои ние располагаме имаат максимален капацитет 50")]
+        
         public int Capacity { get; set; }
+
+        [Required]
         public string BusLine { get; set; }
         public List<BusStop> BusStops { get; set; }
         //za kolku vrreme stiga do sledna postojka
         public List<int> NextStop { get; set; }
-
-        [RegularExpression("^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]"),]
         [Required]
-        public string StartTime { get; set; }
+        [Display(Name ="Hour")]
+        public DateTime StartTime { get; set; }
 
         public Bus()
         {
             BusStops = new List<BusStop>();
         }
 
-        public Bus(int id, int capacity, List<BusStop> busStops, string startTime)
+        public Bus(int id, int capacity, List<BusStop> busStops, DateTime startTime)
         {
             ID = id;
             Capacity = capacity;
