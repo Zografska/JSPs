@@ -1,7 +1,75 @@
-﻿
+﻿@model JSPs.Models.CreateTicketModel
 @{
     ViewBag.Title = "Confirm";
 }
+<h2>ПОТВРДИ РЕЗЕРВАЦИЈА</h2>
+@using (Html.BeginForm("TicketConfirmed", "Tickets", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.BusLineId)
+    @Html.HiddenFor(model => model.EndBusStopId)
+    @Html.HiddenFor(model => model.StartBusStopId)
+    @Html.HiddenFor(model => model.BusId)
+    @Html.HiddenFor(model => model.Date)
+    <div class="form-horizontal">
 
-<h2>Confirm</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    string dateToShow = Model.Date.ToString().Substring(0, 9);
+
+                    @Html.Label(dateToShow, new { htmlAttributes = new { @class = "form-control" } })
+                }
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Линија", htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.Label(Model.LineName, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            @Html.Label("Време на поаѓање", htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.Label(Model.Bus.StartTime.Hour.ToString(), new { htmlAttributes = new { @class = "form-control" } })
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Почетна Постојка", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Label(Model.StartName, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Крајна Постојка", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Label(Model.EndName, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Следно" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+
+
+
+}
+
+<div>
+    @Html.ActionLink("Cancel", "Index")
+</div>
+
 

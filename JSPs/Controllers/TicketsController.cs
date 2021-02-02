@@ -56,6 +56,7 @@ namespace JSPs.Controllers
 
         public ActionResult CreateDaily(int id)
         {
+            //Vleguva so stiskanje na kopceto Rezerviraj
             Bus b = db.Buses.Find(id);
             ViewBag.busLine = b.BusLine;
 
@@ -72,7 +73,7 @@ namespace JSPs.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateDaily([Bind(Include = "Date,BusId,StartBusStopId,EndBusStopId")] CreateTicketModel model)
         {
-
+           
             Ticket ticket = new Ticket();
             ticket.Bus = db.Buses.Find(model.BusId);
             ticket.ChosenBusId = model.BusId;
@@ -196,34 +197,39 @@ namespace JSPs.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Confirm()
+        [HttpPost]
+        public ActionResult Confirm([Bind(Include = "Date,BusId,StartBusStopId,EndBusStopId,BusLineId")] CreateTicketModel model)
         {
+            model.LineName = db.BusLines.Find(model.BusLineId).Name;
+            model.Bus = db.Buses.Find(model.BusId);
+            model.StartName = db.BusStops.Find(model.StartBusStopId).Name;
+            model.EndName = db.BusStops.Find(model.EndBusStopId).Name;
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult TicketConfirmed([Bind(Include = "Date,BusId,StartBusStopId,EndBusStopId,BusLineId")] CreateTicketModel model)
+        {
+
             //Zogra
             //Ova ti e kodot za kreiranje na tiket !!! SHTO PRETHODNO BESHE VO CREATE
-            //Ticket ticket = new Ticket();
-            //ticket.Bus = db.Buses.Find(model.BusId);
-            //ticket.ChosenBusId = model.BusId;
-            //ticket.StartDestination = db.BusStops.Find(model.StartBusStopId);
-            //ticket.StartId = model.StartBusStopId;
-            //ticket.EndDestination = db.BusStops.Find(model.EndBusStopId);
-            //ticket.EndId = model.EndBusStopId;
-            //ticket.DateOfReservation = model.Date;
-            //var userId = User.Identity.GetUserId();
-            //var user = db.Users.Find(userId);
-            //ticket.User = user;
-            //if (ModelState.IsValid)
-            //{
+            Ticket ticket = new Ticket();
+            ticket.Bus = db.Buses.Find(model.BusId);
+            ticket.ChosenBusId = model.BusId;
+            ticket.StartDestination = db.BusStops.Find(model.StartBusStopId);
+            ticket.StartId = model.StartBusStopId;
+            ticket.EndDestination = db.BusStops.Find(model.EndBusStopId);
+            ticket.EndId = model.EndBusStopId;
+            ticket.DateOfReservation = model.Date;
+            var userId = User.Identity.GetUserId();
+            var user = db.Users.Find(userId);
+            ticket.User = user;
 
-            //   db.Tickets.Add(ticket);
-            //    user.TicketList.Add(ticket);
-
-            //    db.SaveChanges();
-            //    return RedirectToAction("Index");
-
-            //}
+               db.Tickets.Add(ticket);
+               user.TicketList.Add(ticket);
+               db.SaveChanges();
 
 
-            return View();
+            return RedirectToAction("Index","Home");
         }
 
         protected override void Dispose(bool disposing)

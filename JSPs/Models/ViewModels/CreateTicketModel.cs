@@ -20,6 +20,7 @@ namespace JSPs.Models
         public string LineName { get; set; }
         public int BusLineId { get; set; }
 
+        public Bus Bus { get; set; }
         [Required]
         public int BusId { get; set; }
         [Required]
@@ -31,6 +32,8 @@ namespace JSPs.Models
         public List<BusStop> EndBusStops { get; set; }
         public List<BusLine> BusLines { get; set; }
         public DateTime DateOfReservation { get; set; }
+        public string StartName { get; set; }
+        public string EndName { get; set; }
 
         [Display(Name = "Изберете линија")]
         public BusLineStartTime BusLineStartTime { get; set; }
