@@ -61,7 +61,20 @@ namespace JSPs.Controllers
             ViewBag.busLine = b.BusLine;
 
             CreateTicketModel model = new CreateTicketModel();
-            List<BusStop> busStops = db.BusStops.ToList();
+
+            List<Bus> allBuses = db.Buses.ToList();
+            List<int> ints = new List<int>();
+
+
+            foreach (Bus bus in allBuses)
+            {
+                if (bus.BusLine.Equals(b.BusLine))
+                {
+                    ints.Add(b.ID);
+                }
+            }
+
+            List<BusStop> busStops = db.BusStops.Where(x => x.Buses.Any(r => ints.Contains(r.ID))).ToList();
 
             model.BusId = id;
             model.StartBusStops = busStops;
