@@ -10,7 +10,10 @@ namespace JSPs.Models
     {
         [Key]
         public int Id { get; set; }
+
+        [Display(Name="Име")]
         public string Name { get; set; }
+        [Display(Name="Постојки")]
         public List<BusStop> BusStops { get; set; }
 
         public BusLine()

@@ -14,16 +14,20 @@ namespace JSPs.Models
         [Required]
         [Range(0, 50, ErrorMessage = "Автобусите со кои ние располагаме имаат максимален капацитет 50")]
         
+        [Display(Name ="Капацитет")]
         public int Capacity { get; set; }
 
         [Required]
+        [Display(Name ="Линија")]
         public string BusLine { get; set; }
+
+        [Display(Name ="Постојки")]
         public List<BusStop> BusStops { get; set; }
         //za kolku vrreme stiga do sledna postojka
         public List<int> NextStop { get; set; }
 
         [Required]
-        [Display(Name ="Hour")]
+        [Display(Name ="Време на поаѓање")]
         [DisplayFormat(DataFormatString = "0:HH\\:mm")]
         [DataType(DataType.Time)]
         public DateTime StartTime { get; set; }

@@ -577,6 +577,7 @@
     <Content Include="Tasks!README.md" />
     <Content Include="Views\Tickets\CreateTicket2.cshtml" />
     <Content Include="Views\Tickets\Confirm.cshtml" />
+    <Content Include="Views\Tickets\InvalidTicket.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

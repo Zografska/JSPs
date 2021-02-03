@@ -9,6 +9,7 @@
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.Date)
+    @Html.HiddenFor(model => model.BusLineStartTime)
     <div class="form-horizontal">
         @Html.HiddenFor(model => model.BusLineId)
         <hr />

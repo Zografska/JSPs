@@ -6,7 +6,11 @@
 
 <h2>ПРЕГЛЕД НА ПОСТОЈКИ</h2>
 
-@Html.ActionLink("Create New", "Create")
+<div class="form-group">
+    <div>
+        <input type="submit" value="Додади нова постојка" onclick="location.href='@Url.Action("Create", "BusStops")'" class="btn btn-primary" />
+    </div>
+</div>
 
 <table class="table" id="stopsTable">
     <thead>

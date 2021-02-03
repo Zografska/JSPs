@@ -22,10 +22,14 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Линии", "Index", "BusLines")</li>
-                    <li>@Html.ActionLink("Билети", "Index", "Tickets")</li>
-                    <li>@Html.ActionLink("Постојки", "Index", "BusStops")</li>
-                    <li>@Html.ActionLink("Автобуси","Index","Buses")</li>
-                    <li class="alert-info"> @Html.ActionLink("Брз Билет","Create", "Tickets")</li>
+                    @{ if (User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("Билети", "Index", "Tickets")</li>
+                            <li>@Html.ActionLink("Постојки", "Index", "BusStops")</li>
+                            <li>@Html.ActionLink("Автобуси", "Index", "Buses")</li>
+                        }}
+
+                    <li class="alert-info"> @Html.ActionLink("Брз Билет", "Create", "Tickets")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -38,12 +42,14 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application
-            <br />
-            Brought to you by: 
-            Jana Serafimovska,
-            Ognen Stojanoski &
-            Aleksandra Zografska</p>
+            <p>
+                &copy; @DateTime.Now.Year - My ASP.NET Application
+                <br />
+                Brought to you by:
+                Jana Serafimovska,
+                Ognen Stojanoski &
+                Aleksandra Zografska
+            </p>
         </footer>
     </div>
 

@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>ПОВЕЌЕ ИНФОРМАЦИИ</h2>
 
 <div>
     <h4>Bus</h4>
@@ -31,10 +31,10 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.StartTime)
+            @Model.StartTime.ToShortTimeString()
         </dd>
         <dt>
-            Bus Stops:
+            @Html.DisplayNameFor(model => model.BusStops)
         </dt>
         <dd>
             <ul>

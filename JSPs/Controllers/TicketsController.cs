@@ -103,7 +103,7 @@ namespace JSPs.Controllers
                 user.TicketList.Add(ticket);
 
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Manage");
             }
 
             return View(ticket);
@@ -132,6 +132,7 @@ namespace JSPs.Controllers
 
             m.BusLineId = model.BusLineId;
             m.LineName = db.BusLines.Find(m.BusLineId).Name;
+
             m.Date = model.Date;
 
             List<Bus> allBuses = db.Buses.ToList();
@@ -213,6 +214,16 @@ namespace JSPs.Controllers
         [HttpPost]
         public ActionResult Confirm([Bind(Include = "Date,BusId,StartBusStopId,EndBusStopId,BusLineId")] CreateTicketModel model)
         {
+            if(model.Date==DateTime.Now.Date)
+            {
+                int hour = DateTime.Now.Hour;
+                bool check = false;
+                DateTime startTime = db.Buses.Find(model.BusId).StartTime;
+                if (hour > startTime.Hour)
+                    return View("InvalidTicket");
+            }
+           
+
             model.LineName = db.BusLines.Find(model.BusLineId).Name;
             model.Bus = db.Buses.Find(model.BusId);
             model.StartName = db.BusStops.Find(model.StartBusStopId).Name;
@@ -245,7 +256,7 @@ namespace JSPs.Controllers
             db.SaveChanges();
 
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Manage");
         }
 
         protected override void Dispose(bool disposing)
