@@ -232,7 +232,7 @@ namespace JSPs.Controllers
             ticket.StartId = model.StartBusStopId;
             ticket.EndDestination = db.BusStops.Find(model.EndBusStopId);
             ticket.EndId = model.EndBusStopId;
-            ticket.DateOfReservation = model.Date;
+            ticket.DateOfReservation = DateTime.Today;
             var userId = User.Identity.GetUserId();
             var user = db.Users.Find(userId);
             ticket.User = user;

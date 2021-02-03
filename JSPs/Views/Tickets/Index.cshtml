@@ -13,6 +13,9 @@
                 @Html.DisplayNameFor(model => model.DateOfReservation)
             </th>
             <th>
+                @Html.Label("Час на тргнување")
+            </th>
+            <th>
                 @Html.Label("Број на автобус")
             </th>
             <th>
@@ -31,7 +34,10 @@
         {
         <tr>
             <td>
-                @Html.DisplayTextFor(modelItem => item.DateOfReservation.Date)
+                @item.DateOfReservation.ToShortDateString()            
+            </td>
+            <td>
+                @item.Bus.StartTime.ToShortTimeString()
             </td>
             <td>
                 <a href='@Url.Action("Details", "Buses", new { id = item.Bus.ID})'>@item.Bus.BusLine</a>

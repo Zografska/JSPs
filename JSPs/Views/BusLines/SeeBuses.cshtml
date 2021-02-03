@@ -13,16 +13,16 @@
         <tr>
 
             <th>
-                @Html.DisplayNameFor(model => model.BusLine)
+                Автобуска линија
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StartTime)
+                Време на тргнување
             </th>
             <th>
-                Initial capacity
+                Почетен капацитет
             </th>
             <th>
-                Available seats
+                Слободни места
             </th>
             <th></th>
         </tr>
@@ -39,7 +39,7 @@
                         @Html.DisplayFor(modelItem => item.BusLine)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.StartTime.Hour)
+                        @item.StartTime.ToShortTimeString()
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Capacity)
