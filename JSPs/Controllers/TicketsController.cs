@@ -42,7 +42,7 @@ namespace JSPs.Controllers
             Ticket ticket = db.Tickets.Find(id);
 
             //Bus bus = db.Buses.Find(ticket.Bus.ID);
-            
+
             //List<BusStop> busStops = db.BusStops.Where(x => x.Buses.Any(y => y.ID == ticket.Bus.ID)).ToList();
             //ViewBag.Test = busStops.Find(b => b.ID == ticket.StartDestination.ID);
 
@@ -62,7 +62,7 @@ namespace JSPs.Controllers
 
             CreateTicketModel model = new CreateTicketModel();
             List<BusStop> busStops = db.BusStops.ToList();
-            
+
             model.BusId = id;
             model.StartBusStops = busStops;
             model.EndBusStops = busStops;
@@ -73,7 +73,7 @@ namespace JSPs.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateDaily([Bind(Include = "Date,BusId,StartBusStopId,EndBusStopId")] CreateTicketModel model)
         {
-           
+
             Ticket ticket = new Ticket();
             ticket.Bus = db.Buses.Find(model.BusId);
             ticket.ChosenBusId = model.BusId;
@@ -105,7 +105,7 @@ namespace JSPs.Controllers
             model.BusLines = busLines;
             model.StartBusStops = busStops;
             model.EndBusStops = busStops;
-            return View("CreateTicket1",model);
+            return View("CreateTicket1", model);
         }
 
         // POST: Tickets/Create
@@ -115,7 +115,7 @@ namespace JSPs.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Date,BusLineId")] CreateTicketModel model)
         {
-            CreateTicketModel m= new CreateTicketModel();
+            CreateTicketModel m = new CreateTicketModel();
 
             m.BusLineId = model.BusLineId;
             m.LineName = db.BusLines.Find(m.BusLineId).Name;
@@ -123,7 +123,7 @@ namespace JSPs.Controllers
 
             List<Bus> allBuses = db.Buses.ToList();
             List<int> ints = new List<int>();
-            
+
 
             foreach (Bus b in allBuses)
             {
@@ -224,12 +224,15 @@ namespace JSPs.Controllers
             var user = db.Users.Find(userId);
             ticket.User = user;
 
-               db.Tickets.Add(ticket);
-               user.TicketList.Add(ticket);
-               db.SaveChanges();
+            if (user == null)
+                return View("notLogedIn");
+
+            db.Tickets.Add(ticket);
+            user.TicketList.Add(ticket);
+            db.SaveChanges();
 
 
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
 
         protected override void Dispose(bool disposing)
